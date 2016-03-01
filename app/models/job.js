@@ -8,6 +8,7 @@ var jobSchema = new Schema({
   location: String,
   salary: String,
   deadline: String,
+  shortlisted: Boolean,
   created_at: Date,
   updated_at: Date
 });
