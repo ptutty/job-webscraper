@@ -1,0 +1,30 @@
+
+
+  <!-- HEADER AND TODO COUNT -->
+  <div class=" jumbotron text-center">
+    <h1>Add Job </h1>
+
+  <!-- FORM TO CREATE TODOS -->
+  <div id="todo-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form>
+        <div class="form-group">
+
+          <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+          <label for="usr">Job Title:</label>
+          <input type="text" class="form-control input-lg text-center" placeholder="Job Title" ng-model="formData.title">
+          <label for="usr">Job Salary:</label>
+          <input type="text" class="form-control input-lg text-center" placeholder="Job Salary" ng-model="formData.salary">
+          <label for="usr">Job location:</label>
+          <input type="text" class="form-control input-lg text-center" placeholder="Job location" ng-model="formData.location">
+          <label for="usr">Job url:</label>
+          <input type="text" class="form-control input-lg text-center" placeholder="Job url" ng-model="formData.url">
+          <label for="usr">Job deadline:</label>
+          <input type="text" class="form-control input-lg text-center" placeholder="Job deadline" ng-model="formData.deadline">
+        </div>
+
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add Job</button>
+      </form>
+    </div>
+  </div>

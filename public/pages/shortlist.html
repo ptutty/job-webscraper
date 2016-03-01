@@ -1,0 +1,29 @@
+
+  <!-- HEADER AND TODO COUNT -->
+  <div class="jumbotron text-center">
+    <h1>Javascript Jobs </h1>
+    <h2>my shortlist   <span class="label label-info">{{ todos.length }}</span></h2>
+
+
+  <!-- TODO LIST -->
+  <div id="todo-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+
+
+      <!-- LOOP OVER THE TODOS IN $scope.todos -->
+      <div class="checkbox" ng-repeat="job in jobs">
+
+        <p>
+          <a ng-href="#/item/{{job._id }}"> {{ job.title }} </a>
+        </p>
+
+      </div>
+
+      <p class="text-center" ng-show="loading">
+        <span class="fa fa-spinner fa-spin fa-3x"></span>
+      </p>
+
+    </div>
+  </div>
+
+  </div>
