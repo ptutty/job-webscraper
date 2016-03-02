@@ -20,6 +20,9 @@ angular.module('jobsService', [])
 			},
 			delete : function(id) {
 				return $http.delete('/api/job/' + id);
+			},
+			import : function() {
+			 return $http.get('/api/import/');
 			}
 		}
 	}]);

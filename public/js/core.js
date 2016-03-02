@@ -15,6 +15,10 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
             .when('/', {
                 templateUrl : 'pages/shortlist.html',
                 controller: 'shortListController'
+            })
+            .when('/settings', {
+                templateUrl : 'pages/settings.html',
+                controller: 'settingsController'
             });
 
         $locationProvider.html5Mode(false);

@@ -1,6 +1,6 @@
 
-// var Jobscrape = require('./helpers/jobscrape'); //  module to import jobs
-var Jobsctrl = require('./controllers/jobs_ctrl'); // jobs controller
+
+var Jobsctrl = require('./controllers/jobsCtrl'); // jobs controller
 
 module.exports = function (app) {
 
@@ -33,11 +33,10 @@ module.exports = function (app) {
         Jobsctrl.deleteJob(req, res);
     });
 
-    //
-    // app.get('/api/scrape', function (req, res) {
-    //   Jobscrape.getJobs();
-    //   res.send('updating');
-    // });
+    // imports fresh jobs
+    app.get('/api/import', function (req, res) {
+      Jobsctrl.importJobs(req, res);
+    });
 
 
 

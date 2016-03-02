@@ -5,9 +5,10 @@ var Schema = mongoose.Schema;
 var jobSchema = new Schema({
   title: String,
   url: String,
-  location: String,
+  employer: String,
   salary: String,
   deadline: String,
+  job_id: String,
   shortlisted: Boolean,
   created_at: Date,
   updated_at: Date
@@ -18,10 +19,8 @@ var jobSchema = new Schema({
 jobSchema.pre('save', function(next) {
   // get the current date
   var currentDate = new Date();
-
   // change the updated_at field to current date
   this.created_at = currentDate;
-
   next();
 });
 
