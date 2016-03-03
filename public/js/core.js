@@ -28,12 +28,7 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
                 templateUrl : 'pages/settings.html',
                 controller: 'settingsController'
             })
-            .when('/login', {
-                templateUrl : 'pages/userauth.html',
-                controller: 'userController'
-            });
-
-          $httpProvider.interceptors.push('authInterceptor');
+  
           $locationProvider.html5Mode(false);
 
     });

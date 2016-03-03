@@ -24,7 +24,6 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 
 
 // routes ======================================================================
-require('./app/auth-routes.js')(app); // auth routes
 require('./app/api-routes.js')(app); // main job api routes
 
 
