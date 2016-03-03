@@ -1,14 +1,25 @@
 {
-  "name"         : "node-todo",
-  "version"      : "0.0.1",
-  "description"  : "Simple todo application.",
-  "main"         : "server.js",
-  "author"       : "philip tutty",
-  "dependencies" : {
-    "express"         : "~4.13.4",
-    "mongoose"        : "~3.8.13",
-    "morgan"          : "~1.1.1",
-    "body-parser"     : "~1.4.3",
-    "method-override" : "~2.1.1"
+  "name": "gizza-job",
+  "version": "0.0.1",
+  "description": "Job search application.",
+  "main": "server.js",
+  "author": "philip tutty",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bl": "^1.1.2",
+    "body-parser": "~1.4.3",
+    "cheerio": "^0.20.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+    "express": "~4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "~2.1.1",
+    "mongoose": "~3.8.13",
+    "morgan": "~1.1.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4"
   }
 }
