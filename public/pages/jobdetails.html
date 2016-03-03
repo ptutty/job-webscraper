@@ -1,0 +1,31 @@
+
+  <!-- FORM TO CREATE TODOS -->
+  <div id="todo-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h3>{{ job.title }}</h3>
+      <h4>
+        {{ job.employer }}
+      </h4>
+      <p>
+        {{job.salary}}
+      </p>
+      <p>
+        <a ng-href="{{job.url}}">More details</a>
+      </p>
+
+      <p>
+        <strong>Deadline: </strong> {{ job.deadline }}
+      </p>
+
+      <p>
+        created at: {{ job.created_at }}
+      </p>
+
+        </div>
+
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <a class="btn btn-primary btn-lg" ng-href="/#/job/edit/{{job._id}}" >Edit this Job</a>
+        <!-- <button type="submit" class="btn btn-danger btn-lg" ng-click="deleteJob()">Delete Job</button> -->
+      </form>
+    </div>
+  </div>

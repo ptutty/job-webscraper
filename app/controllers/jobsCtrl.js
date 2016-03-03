@@ -78,6 +78,7 @@ module.exports = {
   // bulk imports jobs into mongoDB from jobs.ac.uk scrap
 
   importJobs: function(req, res) {
+    var newJobsToday = 0
 
     Jobsimport.get(function(data){
         // iterate over each job;
@@ -87,13 +88,13 @@ module.exports = {
     });
 
     function addToDb(newjob){
-
       Job.count({job_id: newjob.job_id}, function (err, count){
         if(count>0){
-
+          // collection exists already
           console.log("document with id: " + newjob.job_id + " exists");
         } else {
-          console.log("document DOES NOT exists");
+          // collection does not exist - add job to mongoDB
+          newJobsToday++;
           //add new DB entry
           var addJob = new Job({
             title: newjob.title,

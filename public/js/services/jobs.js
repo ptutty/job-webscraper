@@ -1,6 +1,6 @@
 angular.module('jobsService', [])
 
-	// super simple service
+	// super simple service for jobs API
 	// each function returns a promise object
 	.factory('Jobs', ['$http',function($http) {
 		return {

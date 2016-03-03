@@ -19,6 +19,8 @@ angular.module('jobsController')
           // call the update function from our service (returns a promise object)
           Jobs.update($routeParams.id , $scope.job);
           $scope.loading = false;
+          // return to job details 
+          $window.location.href = '/#/job/' + $routeParams.id;
         }
       };
 

@@ -2,6 +2,7 @@
 
 var Jobsctrl = require('./controllers/jobsCtrl'); // jobs controller
 
+
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
@@ -21,7 +22,6 @@ module.exports = function (app) {
         Jobsctrl.createJob(req, res);
     });
 
-
     // updates a single job
     app.put('/api/job/:job_id', function (req, res) {
       Jobsctrl.updateJob(req, res);
@@ -37,7 +37,6 @@ module.exports = function (app) {
     app.get('/api/import', function (req, res) {
       Jobsctrl.importJobs(req, res);
     });
-
 
 
 };

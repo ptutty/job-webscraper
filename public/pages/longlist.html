@@ -1,0 +1,36 @@
+
+  <!-- HEADER AND TODO COUNT -->
+  <div class="jumbotron text-center">
+    <h2>All jobs  <span class="label label-info">{{ jobs.length }}</span></h2>
+
+  <!-- TODO LIST -->
+  <div id="todo-list" class="row">
+    <div class="col-md-12">
+      <table class="table">
+      <thead> <tr> <th>status</th> <th></th> <th></th> <th><span class="text-center">Deadline</a></th> </tr> </thead>
+
+
+        <tr ng-repeat="job in jobs">
+        <th scope="row">
+          <button class="btn btn-default" type="submit" ng-click="shortlist(job.job_id)"><span class="glyphicon glyphicon-eye-open"></span></button>
+
+
+
+        </th>
+        <td><a ng-href="#/job/{{job._id }}"> {{ job.title }} </a></td>
+        <td>{{ job.employer}} </td> <td>{{ job.deadline }} </td>
+       </tr>
+
+
+      </table>
+
+
+
+      <p class="text-center" ng-show="loading">
+        <span class="fa fa-spinner fa-spin fa-3x"></span>
+      </p>
+
+    </div>
+  </div>
+
+  </div>

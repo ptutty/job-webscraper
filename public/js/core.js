@@ -1,10 +1,14 @@
-// angular.module('scotchTodo', ['todoController', 'todoService', 'todoRoutes']);
+
+
 angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
 
-.config(function($routeProvider, $locationProvider) {
+.config(function($routeProvider, $httpProvider, $locationProvider) {
         $routeProvider
-            // route for the about page
-            .when('/item/:id', {
+            .when('/job/:id', {
+                templateUrl : 'pages/jobdetails.html',
+                controller: 'editJobController'
+            })
+            .when('/job/edit/:id', {
                 templateUrl : 'pages/editjob.html',
                 controller: 'editJobController'
             })
@@ -13,14 +17,23 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
                 controller: 'createJobController'
             })
             .when('/', {
+                templateUrl : 'pages/longlist.html',
+                controller: 'jobListController'
+            })
+            .when('/shortlist', {
                 templateUrl : 'pages/shortlist.html',
-                controller: 'shortListController'
+                controller: 'jobListController'
             })
             .when('/settings', {
                 templateUrl : 'pages/settings.html',
                 controller: 'settingsController'
+            })
+            .when('/login', {
+                templateUrl : 'pages/userauth.html',
+                controller: 'userController'
             });
 
-        $locationProvider.html5Mode(false);
+          $httpProvider.interceptors.push('authInterceptor');
+          $locationProvider.html5Mode(false);
 
     });

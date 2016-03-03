@@ -21,15 +21,12 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
-// app.use(function(req, res, next) {
-//     // do logging
-//     console.log('Something is happening.');
-//     next(); // make sure we go to the next routes and don't stop here
-// });
 
 
 // routes ======================================================================
-require('./app/routes.js')(app);
+require('./app/auth-routes.js')(app); // auth routes
+require('./app/api-routes.js')(app); // main job api routes
+
 
 // serve index.html for all remaining routes, in order to leave routing up to angular
 app.all("/*", function(req, res, next) {

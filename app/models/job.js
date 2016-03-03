@@ -9,7 +9,6 @@ var jobSchema = new Schema({
   salary: String,
   deadline: String,
   job_id: String,
-  shortlisted: Boolean,
   created_at: Date,
   updated_at: Date
 });

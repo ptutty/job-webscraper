@@ -1,6 +1,6 @@
 angular.module('jobsController', [])
 
-	.controller('shortListController', ['$scope','$http','Jobs', function($scope, $http, Jobs) {
+	.controller('jobListController', ['$scope','$http','Jobs', function($scope, $http, Jobs) {
 		$scope.loading = true;
 
 		// GET =====================================================================
@@ -11,7 +11,6 @@ angular.module('jobsController', [])
 				$scope.jobs = data;
 				$scope.loading = false;
 			});
-
 
 
 	}]);
