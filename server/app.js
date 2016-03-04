@@ -23,7 +23,7 @@ var app = express();
 
 
 // middleware ===============================================================
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
@@ -51,7 +51,7 @@ require('./routes/authentication.js')(app, User);
 
 // use angular for all other routes
 app.all("/*", function(req, res, next) {
-    res.sendFile("index.html", { root: __dirname + "/../public" });
+    res.sendFile("index.html", { root: __dirname + "/../client" });
 });
 
 
