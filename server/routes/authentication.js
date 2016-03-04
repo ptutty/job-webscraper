@@ -38,7 +38,8 @@ module.exports = function (app, User) {
             });
           }
           res.status(200).json({
-            status: 'Login successful!'
+            status: 'Login successful!',
+            username: user.username
           });
         });
       })(req, res, next);

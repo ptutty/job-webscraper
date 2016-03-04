@@ -5,6 +5,7 @@ angular.module('authService', [])
 
 		// create user variable
 		var user = null;
+		var username = null;
 
 		// return available functions for use in the controllers
 		return ({
@@ -48,8 +49,10 @@ angular.module('authService', [])
 			$http.post('/user/login',
 				{username: username, password: password})
 				// handle success
-				.success(function (data, status) {
+				.success(function (data, status, username) {
+
 					if(status === 200 && data.status){
+						username =  data.username;
 						user = true;
 						deferred.resolve();
 					} else {

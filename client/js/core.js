@@ -13,12 +13,12 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'authService', 'ngR
             .when('/job/edit/:id', {
                 templateUrl : 'pages/editjob.html',
                 controller: 'editJobController',
-                restricted: false
+                restricted: true
             })
             .when('/add/', {
                 templateUrl : 'pages/createjob.html',
                 controller: 'createJobController',
-                restricted: false
+                restricted: true
             })
             .when('/', {
                 templateUrl : 'pages/longlist.html',
@@ -33,7 +33,7 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'authService', 'ngR
             .when('/settings', {
                 templateUrl : 'pages/settings.html',
                 controller: 'settingsController',
-                restricted: false
+                restricted: true
             })
             .when('/login', {
               templateUrl: 'partials/login.html',
@@ -49,10 +49,10 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'authService', 'ngR
           $locationProvider.html5Mode(false);
     })
 
+// check users logged in status before route change
 .run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart',
     function (event, next, current) {
-    console.log(next.restricted);
       AuthService.getUserStatus();
       if (next.restricted && !AuthService.isLoggedIn()) {
         $location.path('/login');

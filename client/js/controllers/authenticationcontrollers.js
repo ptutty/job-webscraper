@@ -46,10 +46,9 @@ angular.module('jobsController')
     ['$scope', '$location', 'AuthService',
     function ($scope, $location, AuthService) {
 
-      $scope.profile = "empty";
+      $scope.profile = AuthService.username;
       $scope.getStatus = function () {
-        $scope.profile = AuthService.isLoggedIn();
-        console.log( AuthService.isLoggedIn() );
+        $scope.profile = AuthService.username;
       }
 
     }])
