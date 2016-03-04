@@ -17,7 +17,6 @@ mongoose.connect(database.remoteUrl); 	// Connect to local MongoDB instance. A r
 
 // models =====================================================================
 var User = require('./models/user.js');
-//console.log(User);
 
 // create instance of express
 var app = express();
@@ -47,7 +46,8 @@ passport.deserializeUser(User.deserializeUser());
 
 
 // routes ======================================================================
-require('./routes/api.js')(app, User);
+require('./routes/api.js')(app);
+require('./routes/authentication.js')(app, User);
 
 // use angular for all other routes
 app.all("/*", function(req, res, next) {
