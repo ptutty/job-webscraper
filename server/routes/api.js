@@ -1,6 +1,6 @@
 
 
-var Jobsctrl = require('./controllers/jobsCtrl'); // jobs controller
+var Jobsctrl = require('../controllers/jobsCtrl'); // jobs controller
 
 
 module.exports = function (app) {
