@@ -33,10 +33,14 @@
             </li>
 
       </ul>
-      <form class="navbar-form navbar-right" role="search" ng-controller="logoutController">
-          <a ng-click='logout()' class="btn btn-default">Logout</a>
-          <a ng-click='getStatus()' class="btn btn-default">get status</a>
-          Logged in as: {{ AuthService.isLoggedIn() }}
+      <form class="navbar-form navbar-right" role="search">
+
+          <a  ng-controller="logoutController" ng-click='logout()' class="btn btn-default">Logout</a>
+          <span ng-controller="userprofileController">
+            <a ng-click='getStatus()' class="btn btn-default">get status</a>
+            Logged in as: {{ profile }}
+          </span>
+
         <!-- <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>

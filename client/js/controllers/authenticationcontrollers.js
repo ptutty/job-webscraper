@@ -40,14 +40,21 @@ angular.module('jobsController')
           $location.path('/login');
         });
     };
-
-
-
-    $scope.getStatus = function () {
-      console.log( AuthService.isLoggedIn() );
-    }
-
   }])
+
+  .controller('userprofileController',
+    ['$scope', '$location', 'AuthService',
+    function ($scope, $location, AuthService) {
+
+      $scope.profile = "empty";
+      $scope.getStatus = function () {
+        $scope.profile = AuthService.isLoggedIn();
+        console.log( AuthService.isLoggedIn() );
+      }
+
+    }])
+
+
 
   .controller('registerController',
   ['$scope', '$location', 'AuthService',
