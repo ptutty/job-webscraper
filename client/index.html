@@ -7,11 +7,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-	<title>Node/Angular Todo App</title>
+	<title>MEAN Job Search App</title>
 
 	<!-- SCROLLS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
 	<style>
 		html 					{ overflow-y:scroll; }
 		body 					{ padding-top:50px; }
@@ -19,7 +20,6 @@
 		#todo-form 	 			{ margin-bottom:50px; }
 	</style>
 
-	<!-- SPELLS -->
  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 
@@ -29,11 +29,13 @@
   <script src="js/controllers/editjobcontroller.js"></script>
 	<script src="js/controllers/createjobcontroller.js"></script>
 	<script src="js/controllers/settingscontroller.js"></script>
-
+ 	<script src="js/controllers/authenticationcontrollers.js"></script>
 
 <!-- load our services -->
 	<script src="js/services/jobs.js"></script>
+	<script src="js/services/authentication.js"></script>
 	<script src="js/core.js"></script> <!-- load our main application including routes -->
+
 
 
 </head>
@@ -44,8 +46,7 @@
 		<div ng-view /> </div>
 	</div>
 
-
-
-
+	<script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js""></script>
 </body>
 </html>

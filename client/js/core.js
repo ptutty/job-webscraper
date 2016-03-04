@@ -1,6 +1,6 @@
 
 
-angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
+angular.module('gizzaJob', ['jobsController', 'jobsService', 'authService', 'ngRoute'])
 
 .config(function($routeProvider, $httpProvider, $locationProvider) {
         $routeProvider
@@ -28,7 +28,15 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'ngRoute'])
                 templateUrl : 'pages/settings.html',
                 controller: 'settingsController'
             })
-  
+            .when('/login', {
+              templateUrl: 'partials/login.html',
+              controller: 'loginController'
+            })
+            .when('/register', {
+              templateUrl: 'partials/register.html',
+              controller: 'registerController'
+            })
+
           $locationProvider.html5Mode(false);
 
     });

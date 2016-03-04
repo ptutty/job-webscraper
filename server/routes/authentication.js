@@ -4,7 +4,7 @@ module.exports = function (app, User) {
     // authnetication routes ======================================
 
     // register route
-    app.post('/register', function(req, res) {
+    app.post('/user/register', function(req, res) {
       User.register(new User({ username: req.body.username }),
         req.body.password, function(err, account) {
         if (err) {
@@ -21,7 +21,7 @@ module.exports = function (app, User) {
     });
 
     // login route
-    app.post('/login', function(req, res, next) {
+    app.post('/user/login', function(req, res, next) {
       passport.authenticate('local', function(err, user, info) {
         if (err) {
           return next(err);
@@ -44,10 +44,23 @@ module.exports = function (app, User) {
       })(req, res, next);
     });
 
-    app.get('/logout', function(req, res) {
+    // logout
+    app.get('/user/logout', function(req, res) {
       req.logout();
       res.status(200).json({
         status: 'Bye!'
+      });
+    });
+
+    // user status - logged in or not
+    app.get('/user/status', function(req, res) {
+      if (!req.isAuthenticated()) {
+        return res.status(200).json({
+          status: false
+        });
+      }
+      res.status(200).json({
+        status: true
       });
     });
 
