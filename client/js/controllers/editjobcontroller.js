@@ -1,11 +1,12 @@
 angular.module('jobsController')
 
   // edit and deletes a job
-  .controller('editJobController',  ['$scope','$http', 'Jobs', '$routeParams','$window' , function($scope, $http, Jobs, $routeParams, $window) {
+  .controller('editJobController',  ['$scope','$http', 'Jobs', 'ShortlistService', '$routeParams','$window', function($scope, $http, Jobs, ShortlistService, $routeParams, $window ) {
       $scope.loading = true;
 
       Jobs.get($routeParams.id)
         .success(function(data) {
+          console.log(data);
           $scope.job = data;
           $scope.loading = false;
         });
@@ -19,7 +20,7 @@ angular.module('jobsController')
           // call the update function from our service (returns a promise object)
           Jobs.update($routeParams.id , $scope.job);
           $scope.loading = false;
-          // return to job details 
+          // return to job details
           $window.location.href = '/#/job/' + $routeParams.id;
         }
       };
@@ -39,4 +40,14 @@ angular.module('jobsController')
           //redirect back to homepage
           $window.location.href = '/#';
       };
+
+      //ADD TO shortlist
+
+      $scope.addToShortList = function() {
+        ShortlistService.add($routeParams.id);
+        console.log( ShortlistService.get() );
+      }
+
+
+
   }])

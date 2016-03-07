@@ -2,7 +2,7 @@ angular.module('jobsService', [])
 
 	// super simple service for jobs API
 	// each function returns a promise object
-	.factory('Jobs', ['$http',function($http) {
+	.factory('Jobs', ['$http', function($http) {
 		return {
 			get : function(id) {
 				if (id) {
