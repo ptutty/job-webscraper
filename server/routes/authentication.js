@@ -53,15 +53,17 @@ module.exports = function (app, User) {
       });
     });
 
-    // user status - logged in or not
+    // persists users state in frontend - called every time routes changes
     app.get('/user/status', function(req, res) {
-      if (!req.isAuthenticated()) {
+
+      if (!req.isAuthenticated() ) {
         return res.status(200).json({
           status: false
         });
       }
       res.status(200).json({
-        status: true
+        status: true,
+        user: req.user
       });
     });
 

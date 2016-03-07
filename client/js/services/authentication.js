@@ -3,9 +3,9 @@ angular.module('authService', [])
 	['$q', '$timeout', '$http',
 	function ($q, $timeout, $http) {
 
-		// create user variable
-		var user = null;
-		var username = null;
+		// user info
+		var userLoggedIn = null;
+		var userProfile = null;
 
 		// return available functions for use in the controllers
 		return ({
@@ -13,15 +13,20 @@ angular.module('authService', [])
 			getUserStatus: getUserStatus,
 			login: login,
 			logout: logout,
-			register: register
+			register: register,
+			getUserProfile: getUserProfile
 		});
 
 		function isLoggedIn() {
-			if(user) {
+			if(userLoggedIn) {
 				return true;
 			} else {
 				return false;
 			}
+		}
+
+		function getUserProfile() {
+			return userProfile;
 		}
 
 		function getUserStatus() {
@@ -29,14 +34,15 @@ angular.module('authService', [])
 			// handle success
 			.success(function (data) {
 				if(data.status){
-					user = true;
+					userLoggedIn = true;
+					userProfile = data.user;
 				} else {
-					user = false;
+					userLoggedIn = false;
 				}
 			})
 			// handle error
 			.error(function (data) {
-				user = false;
+				userLoggedIn = false;
 			});
 		}
 
@@ -52,17 +58,16 @@ angular.module('authService', [])
 				.success(function (data, status, username) {
 
 					if(status === 200 && data.status){
-						username =  data.username;
-						user = true;
+						userLoggedIn = true;
 						deferred.resolve();
 					} else {
-						user = false;
+						userLoggedIn = false;
 						deferred.reject();
 					}
 				})
 				// handle error
 				.error(function (data) {
-					user = false;
+					userLoggedIn = false;
 					deferred.reject();
 				});
 
@@ -80,12 +85,12 @@ angular.module('authService', [])
 			$http.get('/user/logout')
 				// handle success
 				.success(function (data) {
-					user = false;
+					userLoggedIn = false;
 					deferred.resolve();
 				})
 				// handle error
 				.error(function (data) {
-					user = false;
+					userLoggedIn = false;
 					deferred.reject();
 				});
 

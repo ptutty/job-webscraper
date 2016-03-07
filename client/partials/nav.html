@@ -17,7 +17,7 @@
         <li class="active"><a href="#">All jobs <span class="sr-only">(current)</span></a></li>
         <li ><a href="/#/shortlist/">My shortlist <span class="sr-only">(current)</span></a></li>
 
-        <li ><a href="/#/login/">Login<span class="sr-only">(current)</span></a></li>
+
           <li ><a href="/#/register/">Register<span class="sr-only">(current)</span></a></li>
 
 
@@ -33,32 +33,22 @@
             </li>
 
       </ul>
-      <form class="navbar-form navbar-right" role="search">
 
-          <a  ng-controller="logoutController" ng-click='logout()' class="btn btn-default">Logout</a>
-          <span ng-controller="userprofileController">
-            <a ng-click='getStatus()' class="btn btn-default">get status</a>
-            Logged in as: {{ profile }}
+        <span ng-controller="logoutController">
+
+
+          <ul class="nav navbar-nav navbar-right">
+
+          <li ng-hide="isloggedIn"  <a href="/#/login/" class="btn btn-default">Login</a> </li>
+
+          <span ng-show="isloggedIn">
+            <li><a ng-click='logout()' class="btn btn-default">Logout</a></li>
+            <li ><a href="#">Current user: <strong> {{ currentuser.username }} </strong></a></li>
           </span>
-
-        <!-- <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search Jobs</button>
-      </form> -->
-      <!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
           </ul>
-        </li>
-      </ul> -->
+
+        </span>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
