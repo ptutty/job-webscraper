@@ -41,9 +41,13 @@ module.exports = function (app) {
     // SHORTLISTED JOBS ==============================================
 
     // GET USERS SHORTLISTED JOBS
-
     app.get('/api/shortlist/', function (req, res) {
         Shortlistsctrl.get(req, res);
+    });
+
+    // UPDATE USERS SHORTLISTED JOBS
+    app.get('/api/shortlist/update', function (req, res) {
+        Shortlistsctrl.update(req, res);
     });
 
 
