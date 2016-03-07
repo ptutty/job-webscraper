@@ -1,10 +1,12 @@
 var Jobsctrl = require('../controllers/jobsCtrl'); // jobs controller
+var Shortlistsctrl = require('../controllers/shortlistCtrl'); // shortlist controller
+
 
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
 
-    //get all jobs
+    // ALL JOBS =======================================================
     app.get('/api/jobs', function (req, res) {
         Jobsctrl.getJobs(res);
     });
@@ -34,6 +36,16 @@ module.exports = function (app) {
     app.get('/api/import', function (req, res) {
       Jobsctrl.importJobs(req, res);
     });
+
+
+    // SHORTLISTED JOBS ==============================================
+
+    // GET USERS SHORTLISTED JOBS
+
+    app.get('/api/shortlist/', function (req, res) {
+        Shortlistsctrl.get(req, res);
+    });
+
 
 
 };
