@@ -4,21 +4,15 @@ var mongoose = require('mongoose'); 				// mongoose for mongodb
 
 module.exports = {
 
+  // get users shortlist
   get: function(req, res) {
-
     // make sure user is logged in
     if (!req.isAuthenticated() ) {
       return res.status(200).json({
         status: false
       });
     }
-
-    // get user_id of logged in
-    var user_id = req.user._id;
-
-    // find user in MongoDB by ID
-    User.findById(user_id, function (err, doc) {
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+    User.findById(req.user._id, function (err, doc) {
         if (err) {
             res.send(err);
         }
@@ -38,38 +32,28 @@ module.exports = {
     });
   },
 
-
-  // update user shortlist
-  update: function(req, res) {
-
+  // add to users job shortlist
+  add: function(req, res) {
     // make sure user is logged in
     if (!req.isAuthenticated() ) {
       return res.status(200).json({
         status: false
       });
     }
-    // get user_id of logged in
-    var user_id = req.user._id;
 
-     User.findById(user_id, function (err, userToUpdate) {
-         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-         if (err) {
+    User.findById(req.user._id, function (err, userToUpdate) {
+       if (err) {
+           res.send(err);
+       }
+       userToUpdate.shortlist.push(req.params.job_id);
+       userToUpdate.save(function(err) {
+           if (err)
              res.send(err);
-         }
-         userToUpdate.shortlist.push("new item");
-        //  jobToUpdate.salary = req.body.salary;
-        //  jobToUpdate.employer = req.body.employer;
-        //  jobToUpdate.url = req.body.url;
-        //  jobToUpdate.deadline = req.body.deadline;
 
-         userToUpdate.save(function(err) {
-             if (err)
-               res.send(err);
-
-               res.json(userToUpdate);
-               console.log('successfully saved');
-         });
-     });
+             res.json(userToUpdate.shortlist);
+             console.log('successfully saved');
+       });
+    });
  }
 
 

@@ -23,11 +23,15 @@
 
         </div>
 
-        <!-- createToDo() WILL CREATE NEW TODOS -->
-        <a class="btn btn-primary btn-lg" ng-href="/#/job/edit/{{job._id}}" >Edit this Job</a>
-        <a class="btn btn-primary btn-lg" ng-click="addToShortList()" >shortlist this Job</a>
-
 
       </form>
     </div>
+
+  </div>
+  <div  class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+    <a class="btn btn-danger btn-lg" ng-href="/#/job/edit/{{job._id}}" >Edit this Job</a>
+    <a class="btn btn-success btn-lg" ng-click="addToShortList()" >Shortlist this Job</a>
+  </div>
+
   </div>

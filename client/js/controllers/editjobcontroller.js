@@ -41,11 +41,10 @@ angular.module('jobsController')
           $window.location.href = '/#';
       };
 
-      //ADD TO shortlist
+      // shortlisting =======================================================
 
       $scope.addToShortList = function() {
         ShortlistService.add($routeParams.id);
-        console.log( ShortlistService.get() );
       }
 
 

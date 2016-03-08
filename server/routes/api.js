@@ -45,9 +45,9 @@ module.exports = function (app) {
         Shortlistsctrl.get(req, res);
     });
 
-    // UPDATE USERS SHORTLISTED JOBS
-    app.get('/api/shortlist/update', function (req, res) {
-        Shortlistsctrl.update(req, res);
+    // ADD JOB TO SHORTLIST
+    app.put('/api/shortlist/:job_id', function (req, res) {
+        Shortlistsctrl.add(req, res);
     });
 
 
