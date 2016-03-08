@@ -1,27 +1,35 @@
 
-  <!-- HEADER AND TODO COUNT -->
-  <div class="jumbotron text-center">
-    <h2>my shortlist </h2>
+<div class="jumbotron text-center">
+  <h2>Shortlisted jobs  <span class="label label-info">{{ shortlist.length }}</span></h2>
 
-  <!-- TODO LIST -->
-  <div id="todo-list" class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+<!-- TODO LIST -->
+<div id="shortlist" class="row">
+  <div class="col-md-12">
+    <table class="table">
+    <thead> <tr> <th>status</th> <th></th> <th></th> <th><span class="text-center">Deadline</a></th> </tr> </thead>
 
 
-      <!-- LOOP OVER THE TODOS IN $scope.todos -->
-      <div class="checkbox" ng-repeat="job in shortlist">
+      <tr ng-repeat="job in shortlist">
+      <th scope="row">
+        <button class="btn btn-default" type="submit" ng-click="shortlist(job.job_id)"><span class="glyphicon glyphicon-eye-open"></span></button>
 
-        <p>
-          <a ng-href="#"> {{ job }} </a>
-        </p>
 
-      </div>
 
-      <p class="text-center" ng-show="loading">
-        <span class="fa fa-spinner fa-spin fa-3x"></span>
-      </p>
+      </th>
+      <td><a ng-href="#/job/{{job._id }}"> {{ job.title }} </a></td>
+      <td>{{ job.employer}} </td> <td>{{ job.deadline }} </td>
+     </tr>
 
-    </div>
+
+    </table>
+
+
+
+    <p class="text-center" ng-show="loading">
+      <span class="fa fa-spinner fa-spin fa-3x"></span>
+    </p>
+
   </div>
+</div>
 
-  </div>
+</div>

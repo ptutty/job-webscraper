@@ -14,8 +14,11 @@ angular.module('jobsController', [])
 
 
 		// shortlisted jobs ======================================================
-		 $scope.shortlist = ShortlistService.get();
-
+		 ShortlistService.get()
+		 	.success(function(data) {
+				 $scope.shortlist = data;
+				 $scope.loading = false;
+			});
 
 
 	}]);

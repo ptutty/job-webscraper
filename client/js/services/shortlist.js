@@ -3,7 +3,7 @@ angular.module('shortlistService', [])
 	.factory('ShortlistService', ['$http', function ($http) {
 
 		// shortlisted jobs
-		var shortlist = [];
+		//var shortlist = ['item one', 'item two', 'item 3'];
 
 		// return available functions for use in the controllers
 		return {
@@ -12,9 +12,7 @@ angular.module('shortlistService', [])
 		};
 
 		function get() {
-				// get request for all users shortlised jobs
-				return shortlist;
-
+				return $http.get('/api/shortlist');
 		}
 
 		function add(job_id) {
