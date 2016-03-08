@@ -1,6 +1,6 @@
 var Job = require('../models/job'); // job model
 var User = require('../models/user'); // user model
-
+var mongoose = require('mongoose'); 				// mongoose for mongodb
 
 module.exports = {
 
@@ -15,28 +15,27 @@ module.exports = {
 
     // get user_id of logged in
     var user_id = req.user._id;
-    var shortlist_array = [];
 
     // find user in MongoDB by ID
-    User.findById(user_id, function (err, data) {
+    User.findById(user_id, function (err, doc) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }
-        shortlist_array = data.shortlist;
-        //res.json(data.shortlist); // shortlist array
+
+        // covert shortlist string ID's to objectID's
+        var shortlist_array_as_objID = doc.shortlist.map(function(job_id){
+            return mongoose.Types.ObjectId(job_id)
+        });
+
+        Job.find({
+          '_id': { $in: shortlist_array_as_objID }}, function(err, docs){
+            if (err) {
+              res.send(err);
+            }
+              res.json(docs); // saved jobs
+        });
     });
-
-
-    // find item is jobs schema by ID in array - does mongoose shema take arrays as argument
-    Jobs.findById(shortlist_array, function (err, jobs) {
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-        if (err) {
-            res.send(err);
-        }
-        res.json(jobs); // shortlist array
-    });
-
   },
 
 

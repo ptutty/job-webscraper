@@ -65,6 +65,7 @@ module.exports = function (app, User) {
         status: true,
         user: req.user
       });
+
     });
 
 
