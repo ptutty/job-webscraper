@@ -50,7 +50,6 @@ angular.module('jobsController')
     $scope.currentuser = AuthService.getUserProfile();
     $scope.$watch(function(){return AuthService.getUserProfile()}, function (newValue) {
         $scope.currentuser = newValue;
-        console.log(newValue);
     }, true);
 
 

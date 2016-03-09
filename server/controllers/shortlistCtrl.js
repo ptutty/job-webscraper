@@ -54,7 +54,38 @@ module.exports = {
              console.log('successfully saved');
        });
     });
- }
+ },
+
+ delete: function(req, res) {
+   // make sure user is logged in
+   if (!req.isAuthenticated() ) {
+     return res.status(200).json({
+       status: false
+     });
+   }
+
+   User.findById(req.user._id, function (err, userToUpdate) {
+      if (err) {
+          res.send(err);
+      }
+
+      // iterate over array - remove item - user map or reduce
+      var updatedShortlist = [];
+      updatedShortlist = userToUpdate.shortlist.filter(function(item){
+        return item !== req.params.job_id;
+      })
+
+      userToUpdate.shortlist = updatedShortlist;
+
+      userToUpdate.save(function(err) {
+          if (err)
+            res.send(err);
+
+            res.json(userToUpdate.shortlist);
+            console.log('successfully saved');
+      });
+   });
+}
 
 
 

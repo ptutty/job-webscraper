@@ -50,6 +50,11 @@ module.exports = function (app) {
         Shortlistsctrl.add(req, res);
     });
 
+    // remove JOB from SHORTLIST
+    app.delete('/api/shortlist/:job_id', function (req, res) {
+        Shortlistsctrl.delete(req, res);
+    });
+
 
 
 };

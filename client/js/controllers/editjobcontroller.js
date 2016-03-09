@@ -47,6 +47,9 @@ angular.module('jobsController')
         ShortlistService.add($routeParams.id);
       }
 
+      $scope.deleteFromShortList = function() {
+        ShortlistService.remove($routeParams.id);
+      }
 
 
   }])

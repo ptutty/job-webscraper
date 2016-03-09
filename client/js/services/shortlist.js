@@ -5,7 +5,8 @@ angular.module('shortlistService', [])
 		// return available functions for use in the controllers
 		return {
 			get: get,
-			add: add
+			add: add,
+			remove: remove
 		};
 
 		// get all jobs in shortlist
@@ -18,5 +19,10 @@ angular.module('shortlistService', [])
 			return $http.put('/api/shortlist/' + job_id);
 		}
 
+		// remove job to shortlist
+		function remove(job_id) {
+			console.log(job_id);
+			return $http.delete('/api/shortlist/' + job_id);
+		}
 
 }]);
