@@ -1,8 +1,11 @@
 // set up ======================================================================
+
+
+var env  = require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose'); 				// mongoose for mongodb
 var port = process.env.PORT || 8080; 				// set the port
-var database = require('./config/database'); 			// load the database config
+
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -13,7 +16,7 @@ var passport = require('passport');
 var localStrategy = require('passport-local' ).Strategy;
 
 // configuration ===============================================================
-mongoose.connect(database.remoteUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
+mongoose.connect(env.MONGO_HOST); 	// set .env for local and production
 
 // models =====================================================================
 var User = require('./models/user.js');
