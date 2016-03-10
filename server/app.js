@@ -4,7 +4,7 @@
 var env  = require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose'); 				// mongoose for mongodb
-var port = process.env.PORT || 8080; 				// set the port
+var port = env.PORT;			// set the port
 
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
