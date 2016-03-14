@@ -32,7 +32,7 @@ module.exports = function (app) {
         Jobsctrl.deleteJob(req, res);
     });
 
-    // imports fresh jobs
+    // import bulk jobs
     app.get('/api/import', function (req, res) {
       Jobsctrl.importJobs(req, res);
     });

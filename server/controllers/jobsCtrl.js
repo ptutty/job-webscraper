@@ -1,4 +1,5 @@
 var Job = require('../models/job'); // job model
+var AppState = require('../models/appstate'); // job model
 var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
   },
 
   // get single job
-   getJob: function(req, res) {
+  getJob: function(req, res) {
       Job.findById(req.params.job_id, function (err, job) {
           // if there is an error retrieving, send the error. nothing after res.send(err) will execute
           if (err) {
@@ -25,7 +26,6 @@ module.exports = {
   },
 
   createJob: function(req, res) {
-
     var newJob = new Job({
       title: req.body.title,
       salary: req.body.salary,
@@ -66,7 +66,6 @@ module.exports = {
   },
 
   deleteJob: function(req, res) {
-
     Job.remove({
         _id: req.params.job_id
     }, function (err, job) {
@@ -76,25 +75,48 @@ module.exports = {
   },
 
   // bulk imports jobs into mongoDB from jobs.ac.uk scrap
-
   importJobs: function(req, res) {
-    var newJobsToday = 0
+    var jobsMeta = { "newjobs": 0 , "last_import": "not sure" };
+    var totalJobCount = 0;
 
     Jobsimport.get(function(data){
         // iterate over each job;
+        totalJobCount = data.jobs.length;
         data.jobs.forEach(function(newjob){
-          addToDb(newjob);
+          addJobToDb( newjob );
         })
     });
 
-    function addToDb(newjob){
+    function jobsMetaUpdate(){
+        totalJobCount--;
+        if  ( totalJobCount == 0) {
+            if (jobsMeta.newjobs > 0) { jobsMeta.last_import = new Date() };
+            addMetaToDb()
+            // res.json(jobsMeta);
+        }
+    }
+
+    function addMetaToDb(){
+      console.log("updating meta");
+      var addAppMeta = new AppState({
+        newjobs: jobsMeta.newjobs,
+        updated_at: new Date()
+      });
+      addAppMeta.save(function(err) {
+          if (err)
+            res.send(err);
+      });
+    }
+
+
+
+    function addJobToDb(newjob){
       Job.count({job_id: newjob.job_id}, function (err, count){
         if(count>0){
           // collection exists already
-          console.log("document with id: " + newjob.job_id + " exists");
         } else {
           // collection does not exist - add job to mongoDB
-          newJobsToday++;
+          jobsMeta.newjobs++;
           //add new DB entry
           var addJob = new Job({
             title: newjob.title,
@@ -109,12 +131,11 @@ module.exports = {
               if (err)
                 res.send(err);
           });
-        }
-      });
-
-     }
-
- }
+        } // end if
+        jobsMetaUpdate();
+      }); //end job count
+    } //end addToDB
+   } //end import jobs
 
 
 
