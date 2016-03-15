@@ -8,13 +8,12 @@ angular.module('jobsController')
     });
 
 
-      $scope.importJobs  = function() {
-          Jobs.import()
-          .success(function(data) {
-            console.log(data);
-          });
-      };
-
+    $scope.importJobs  = function() {
+        Jobs.import()
+        .success(function(data) {
+          console.log(data);
+        });
+    };
 
 
 }]);

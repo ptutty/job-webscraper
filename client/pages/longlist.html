@@ -3,19 +3,26 @@
   <div class="jumbotron text-center">
     <h2>All jobs  <span class="label label-info">{{ jobs.length }}</span></h2>
 
+    <h3>Last import  <span class="label label-info">{{ appstate.updated_at }}</span></h3>
+    <h3>New Jobs since last import  <span class="label label-info">{{ appstate.newjobs }}</span></h3>
+
+
   <!-- TODO LIST -->
   <div id="todo-list" class="row">
     <div class="col-md-12">
       <table class="table">
-      <thead> <tr> <th>status</th> <th></th> <th></th> <th><span class="text-center">Deadline</a></th> </tr> </thead>
+      <thead>
+        <tr>
+          <th> Status </th>
+          <th><span class="text-center"><a href="" ng-click="sort('title')"> Job Title</a></th>
+          <th><span class="text-center"><a href="" ng-click="sort('employer')"> Employer</a></th>
+          <th><span class="text-center"><a href="" ng-click="sort('deadline')"> Deadline</a></th>
 
+           </tr></thead>
 
-        <tr ng-repeat="job in jobs">
+        <tr ng-repeat="job in jobs | orderBy:sortField:descending ">
         <th scope="row">
           <button class="btn btn-default" type="submit" ng-click="shortlist(job.job_id)"><span class="glyphicon glyphicon-eye-open"></span></button>
-
-
-
         </th>
         <td><a ng-href="#/job/{{job._id }}"> {{ job.title }} </a></td>
         <td>{{ job.employer}} </td> <td>{{ job.deadline }} </td>

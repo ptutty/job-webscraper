@@ -1,6 +1,6 @@
 angular.module('jobsController', [])
 
-	.controller('jobListController', ['$scope','$http','Jobs', 'ShortlistService', function($scope, $http, Jobs, ShortlistService) {
+	.controller('jobListController', ['$scope','$http','Jobs', 'ShortlistService', 'AppService', function($scope, $http, Jobs, ShortlistService, AppService) {
 		$scope.loading = true;
 
 		// GET =====================================================================
@@ -12,13 +12,34 @@ angular.module('jobsController', [])
 				$scope.loading = false;
 			});
 
+		// last job import meta info
+		AppService.get()
+		.success(function(data) {
+			 $scope.appstate = data;
+		});
+
 
 		// shortlisted jobs ======================================================
-		 ShortlistService.get()
-		 	.success(function(data) {
-				 $scope.shortlist = data;
-				 $scope.loading = false;
-			});
+		ShortlistService.get()
+			.success(function(data) {
+			 $scope.shortlist = data;
+			 $scope.loading = false;
+		});
+
+		// longlist sorting ++++++++++++++++++++++++++
+		$scope.sortField = "deadline";
+  	$scope.descending = false;
+
+		$scope.sort = function (newSortField) {
+			console.log("sort by" + newSortField);
+		  if ($scope.sortField == newSortField) {
+				$scope.descending = !$scope.descending;
+
+			} else {
+				$scope.sortField = newSortField;
+			}
+			return false;
+		}
 
 
 	}]);
