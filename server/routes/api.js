@@ -32,9 +32,16 @@ module.exports = function (app) {
         Jobsctrl.deleteJob(req, res);
     });
 
+    // IMPORTING JOBS ================================================
+
     // import bulk jobs
     app.get('/api/import', function (req, res) {
       Jobsctrl.importJobs(req, res);
+    });
+
+    // gets meta information from mongoDB about last import and new job
+    app.get('/api/appstate', function (req, res) {
+      Jobsctrl.getAppState(res);
     });
 
 

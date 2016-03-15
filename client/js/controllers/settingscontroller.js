@@ -1,12 +1,20 @@
 angular.module('jobsController')
+  .controller('settingsController',  ['$scope','$http','AppService','Jobs','$routeParams' , function($scope, $http, AppService, Jobs, $routeParams) {
 
-  // edit and deletes a job
-  .controller('settingsController',  ['$scope','$http', 'Jobs', '$routeParams' , function($scope, $http, Jobs, $routeParams) {
-      //$scope.loading = true;
+    AppService.get()
+    .success(function(data) {
+       $scope.appstate = data;
+       console.log(data);
+    });
+
+
       $scope.importJobs  = function() {
           Jobs.import()
           .success(function(data) {
             console.log(data);
           });
-      }
+      };
+
+
+
 }]);

@@ -1,12 +1,12 @@
 
   <!-- HEADER AND TODO COUNT -->
   <div class="jumbotron text-center">
-    <h3>Settings</h3>
 
   <!-- TODO LIST -->
   <div id="todo-list" class="row">
     <div class="col-sm-4 col-sm-offset-4">
-
+<h2>New Jobs since last import  <span class="label label-info">{{ appstate.newjobs }}</span></h2>
+<h2>last import  <span class="label label-info">{{ appstate.updated_at }}</span></h2>
 
     <button type="submit" class="btn btn-danger btn-lg" ng-click="importJobs()">import Jobs</button>
 

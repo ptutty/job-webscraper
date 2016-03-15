@@ -1,6 +1,8 @@
 var Job = require('../models/job'); // job model
 var AppState = require('../models/appstate'); // job model
+AppState.objectID = '56e6e270b8d507b8199db10f'; //object id document holding app state info in mongoDB
 var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
+
 
 module.exports = {
   // get all jobs
@@ -74,9 +76,23 @@ module.exports = {
     });
   },
 
+  // JOB import controllers ==========================================
+
+  // gets app state info - last job import timestamp , new jobs since last import
+
+  getAppState: function(res) {
+    AppState.findById(AppState.objectID, function (err, data) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(data); // returns job in JSON format
+    });
+  },
+
+
   // bulk imports jobs into mongoDB from jobs.ac.uk scrap
   importJobs: function(req, res) {
-    var jobsMeta = { "newjobs": 0 , "last_import": "not sure" };
+    var newJobsImported = 0;
     var totalJobCount = 0;
 
     Jobsimport.get(function(data){
@@ -87,28 +103,30 @@ module.exports = {
         })
     });
 
-    function jobsMetaUpdate(){
+    function newJobsCount(){
         totalJobCount--;
         if  ( totalJobCount == 0) {
-            if (jobsMeta.newjobs > 0) { jobsMeta.last_import = new Date() };
-            addMetaToDb()
-            // res.json(jobsMeta);
+            if (newJobsImported > 0) { // only update app state if there are new jobs
+              updateAppState();
+            };
         }
     }
 
-    function addMetaToDb(){
-      console.log("updating meta");
-      var addAppMeta = new AppState({
-        newjobs: jobsMeta.newjobs,
-        updated_at: new Date()
-      });
-      addAppMeta.save(function(err) {
-          if (err)
-            res.send(err);
+    // updates meta in the database
+    function updateAppState(){
+      AppState.findById(AppState.objectID, function (err, update) {
+          if (err) {
+              res.send(err);
+          }
+          update.newjobs = newJobsImported,
+          updated_at = new Date();
+
+          update.save(function(err) {
+              if (err)
+                res.send(err);
+          });
       });
     }
-
-
 
     function addJobToDb(newjob){
       Job.count({job_id: newjob.job_id}, function (err, count){
@@ -116,7 +134,7 @@ module.exports = {
           // collection exists already
         } else {
           // collection does not exist - add job to mongoDB
-          jobsMeta.newjobs++;
+          newJobsImported++;
           //add new DB entry
           var addJob = new Job({
             title: newjob.title,
@@ -132,7 +150,7 @@ module.exports = {
                 res.send(err);
           });
         } // end if
-        jobsMetaUpdate();
+        newJobsCount();
       }); //end job count
     } //end addToDB
    } //end import jobs
