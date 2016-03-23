@@ -5,6 +5,9 @@ var http = require('http')
 var bl = require('bl')
 var cheerio = require('cheerio');
 var fs = require('fs');
+var moment = require('moment'); // momentjs library
+moment().format();
+
 
 // all IT jobs in midlands on jobs.ac.uk
 var JobSites = [
@@ -59,7 +62,8 @@ function jobScrape(data, site) {
     // deadline
     var month = $this.find('span.month').text();
     var day = $this.find('span.day').text();
-    jobObject.deadline = day + " " + month;
+    // function to translate string to date object in mongoDB
+    jobObject.deadline = stringToDate(day,month);
 
     jobBlob.jobs.push(jobObject);
   });
@@ -68,7 +72,21 @@ function jobScrape(data, site) {
 }
 
 
-// saves to file
+// add to mongodb as date object
+function stringToDate(day,month) {
+  var year = moment().year();
+  var months = ['jan', 'feb', 'mar', 'apr' , 'may', 'june' , 'july' ,'aug' , 'sep' , 'oct', 'nov' , 'dec']; // look up table of months
+  var monthAsInt = parseInt( months.indexOf( month.toLowerCase() )) + 1;
+  var newDateString = year + "/" + monthAsInt + "/" + day;
+  console.log(newDateString);
+  var newDateObj = new Date(newDateString);
+  return newDateObj
+}
+
+
+
+
+// saves data to file - not used
 function saveDate(data) {
   fs.writeFile("data/jobs.json", data, function(err) {
       if(err) {

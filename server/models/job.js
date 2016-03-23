@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 // create a schema
 var jobSchema = new Schema({
   title: String,
   url: String,
   employer: String,
   salary: String,
-  deadline: String,
+  deadline: Date,
   job_id: String,
   created_at: Date,
   updated_at: Date
@@ -16,10 +17,9 @@ var jobSchema = new Schema({
 
 //on every save, add the date
 jobSchema.pre('save', function(next) {
-  // get the current date
-  var currentDate = new Date();
+
   // change the updated_at field to current date
-  this.created_at = currentDate;
+  this.created_at = new Date();
   next();
 });
 
