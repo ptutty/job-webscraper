@@ -2,17 +2,23 @@ var Job = require('../models/job'); // job model
 var AppState = require('../models/appstate'); // job model
 AppState.objectID = '56e6e270b8d507b8199db10f'; //object id document holding app state info in mongoDB
 var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
+var Jobspretty = require('../helpers/jobspretty'); // pretty job dates etc
+
 
 
 module.exports = {
   // get all jobs
   getJobs: function(res)  {
-      Job.find(function (err, jobs) {
+
+
+      Job.find(function (err, jobs){
           // if there is an error retrieving, send the error. nothing after res.send(err) will execute
           if (err) {
               res.send(err);
           }
-          res.json(jobs); // return all jobs in JSON format
+
+         res.json(Jobspretty.deadlineDates(jobs));
+
       });
   },
 
