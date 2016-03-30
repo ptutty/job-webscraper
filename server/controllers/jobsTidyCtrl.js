@@ -12,11 +12,9 @@ module.exports = {
 
         Job.remove({deadline: { "$lt" : yesterday() } },function(err, doc) {
             if (doc){
-                res.json(doc); // returns these jobs in JSON format
-                console.log('document removed');
-
+                res.json("documents removed " + doc); // returns these jobs in JSON format
             } else  {
-                console.log('not found');
+                res.json("documents removed " + doc);
             }
         });
     }

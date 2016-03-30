@@ -3,10 +3,9 @@
  */
 
 var Job = require('../models/job'); // job model
-var AppState = require('../models/appstate'); // job model
-AppState.objectID = '56e6e270b8d507b8199db10f'; //object id document holding app state info in mongoDB
+var AppState = require('../models/appstate'); // app state model
 var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
-
+var env  = require('dotenv').config();
 var newJobsImported = 0, totalJobCount = 0;
 
 module.exports = {
@@ -42,7 +41,7 @@ module.exports = {
 function updateAppState() {
     if  ( totalJobCount == 0 && newJobsImported > 0) { // only update app state if there are new jobs
 
-            AppState.findById(AppState.objectID, function (err, update) {
+            AppState.findById(env.APP_STATE_ID, function (err, update) {
                 if (err) {
                     res.send(err);
                 }
