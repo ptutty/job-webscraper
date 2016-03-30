@@ -7,8 +7,12 @@ var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist cont
 var CronJob = require('cron').CronJob;
 
 
-new CronJob('0 */1 * * * *', function() {
-    console.log('tidy jobs every minute');
+new CronJob('00 30 11 * * 1-5', function() {
+    /*
+     * Runs every weekday (Monday through Friday)
+     * at 11:30:00 AM. It does not run on Saturday
+     * or Sunday.
+     */
     JobsTidyCtrl.checkDeadlineCron();
     JobsImportCtrl.importJobs();
 
