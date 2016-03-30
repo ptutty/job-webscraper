@@ -1,11 +1,8 @@
 // set up ======================================================================
-
-
 var env  = require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose'); 				// mongoose for mongodb
 var port = env.PORT; // set the port
-
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -14,6 +11,9 @@ var hash = require('bcrypt-nodejs');
 var path = require('path');
 var passport = require('passport');
 var localStrategy = require('passport-local' ).Strategy;
+// create instance of express
+var app = express();
+
 
 // configuration ===============================================================
 mongoose.connect(env.MONGO_HOST); 	// set .env for local and production
@@ -21,8 +21,9 @@ mongoose.connect(env.MONGO_HOST); 	// set .env for local and production
 // models =====================================================================
 var User = require('./models/user.js');
 
-// create instance of express
-var app = express();
+
+// Cron jobs  ==================================================================
+require('./helpers/cronjobs.js');
 
 
 // middleware ===============================================================

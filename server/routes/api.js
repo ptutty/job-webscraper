@@ -37,7 +37,7 @@ module.exports = function (app) {
 
     // import bulk jobs
     app.get('/api/import', function (req, res) {
-        JobsImportCtrl.importJobs(req, res);
+        JobsImportCtrl.importJobs();
     });
 
     // gets meta information from mongoDB about last import and new job

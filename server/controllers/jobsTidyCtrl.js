@@ -5,7 +5,7 @@ moment().format();
 
 module.exports = {
 
-    /* remove jobs that are passed deadline */
+    /* remove jobs that are passed deadline via api route*/
 
     checkDeadline: function (res) {
         // iterate over all jobs and remove job with deadlines which passed yesterday
@@ -15,6 +15,18 @@ module.exports = {
                 res.json("documents removed " + doc); // returns these jobs in JSON format
             } else  {
                 res.json("documents removed " + doc);
+            }
+        });
+    },
+
+    /* remove jobs that are passed deadline via cron job */
+    checkDeadlineCron: function () {
+
+        Job.remove({deadline: { "$lt" : yesterday() } },function(err, doc) {
+            if (doc){
+                console.log("These documents removed " + doc);
+            } else  {
+                console.log("no documents removed");
             }
         });
     }

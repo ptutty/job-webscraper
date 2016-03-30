@@ -22,11 +22,9 @@ module.exports = {
         })
     },
 
-    importJobs: function (req, res) { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
+    importJobs: function () { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
         Jobsimport.get(function (data) {
             totalJobCount = data.jobs.length;
-            console.log("number of jobs in query " + totalJobCount)
-
             data.jobs.forEach(function (item) {
                 addJob(item);
             })
@@ -47,6 +45,7 @@ function updateAppState() {
                 }
                 update.newjobs = newJobsImported;
                 update.updated_at = new Date();
+                console.log( newJobsImported + " added at " + update.updated_at)
 
                 update.save(function(err) {
                     if (err)
