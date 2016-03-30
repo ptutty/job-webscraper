@@ -78,7 +78,6 @@ function stringToDate(day,month) {
   var months = ['jan', 'feb', 'mar', 'apr' , 'may', 'june' , 'july' ,'aug' , 'sep' , 'oct', 'nov' , 'dec']; // look up table of months
   var monthAsInt = parseInt( months.indexOf( month.toLowerCase() )) + 1;
   var newDateString = year + "/" + monthAsInt + "/" + day;
-  console.log(newDateString);
   var newDateObj = new Date(newDateString);
   return newDateObj
 }

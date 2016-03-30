@@ -23,9 +23,11 @@ module.exports = {
         })
     },
 
-    importJobs: function (req, res) { // bulk imports jobs into mongoDB from jobs.ac.uk scrap
+    importJobs: function (req, res) { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
         Jobsimport.get(function (data) {
             totalJobCount = data.jobs.length;
+            console.log("number of jobs in query " + totalJobCount)
+
             data.jobs.forEach(function (item) {
                 addJob(item);
             })
@@ -54,6 +56,11 @@ function updateAppState() {
             })
         }
 }
+
+
+
+// does job already exist in database? If not add it.
+// keep track of number added in newJobsImported.
 
 function addJob(item){
     Job.count({job_id: item.job_id}, function (err, count){
