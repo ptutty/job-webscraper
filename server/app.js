@@ -53,7 +53,7 @@ require('./routes/api.js')(app);
 require('./routes/authentication.js')(app, User);
 
 // use angular for all other routes
-app.all("/*", function(req, res, next) {
+app.all("*", function(req, res, next) {
     res.sendFile("index.html", { root: __dirname + "/../client" });
 });
 
