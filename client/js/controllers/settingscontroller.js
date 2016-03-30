@@ -5,15 +5,20 @@ angular.module('jobsController')
     .success(function(data) {
        $scope.appstate = data;
        console.log(data);
-    });
+    })
 
 
     $scope.importJobs  = function() {
         Jobs.import()
-        .success(function(data) {
-          console.log(data);
-        });
-    };
+          .success(function(data) {
+              console.log("new jobs imported: " + data);
+          });
+    }
 
-
+    $scope.tidyJobs  = function() {
+        Jobs.tidy()
+          .success(function(data) {
+              console.log(data);
+          });
+    }
 }]);

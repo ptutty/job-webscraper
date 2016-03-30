@@ -8,7 +8,9 @@
 <h2>New Jobs since last import  <span class="label label-info">{{ appstate.newjobs }}</span></h2>
 <h2>last import  <span class="label label-info">{{ appstate.updated_at }}</span></h2>
 
-    <button type="submit" class="btn btn-danger btn-lg" ng-click="importJobs()">import Jobs</button>
+    <button type="submit" class="btn btn-danger btn-lg" ng-click="importJobs()">Import Jobs</button>
+        <button type="submit" class="btn btn-success btn-lg" ng-click="tidyJobs()">Remove old Jobs</button>
+
 
     </div>
 

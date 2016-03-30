@@ -23,6 +23,9 @@ angular.module('jobsService', [])
 			},
 			import : function() {
 			 return $http.get('/api/import/');
+			},
+			tidy : function() {
+				return $http.get('/api/jobsclean/');
 			}
 		}
 	}]);

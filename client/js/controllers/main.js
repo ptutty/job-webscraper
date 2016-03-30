@@ -40,6 +40,5 @@ angular.module('jobsController', [])
 			}
 			return false;
 		}
-
-
 	}]);
+
