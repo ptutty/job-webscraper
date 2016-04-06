@@ -6,7 +6,7 @@ var Job = require('../models/job'); // job model
 var AppState = require('../models/appstate'); // app state model
 var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
 var env  = require('dotenv').config();
-var newJobsImported = 0, totalJobCount = 0;
+var newJobsImported, totalJobCount;
 
 module.exports = {
 
@@ -23,8 +23,11 @@ module.exports = {
     },
 
     importJobs: function () { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
+
+        newJobsImported = 0;
         Jobsimport.get(function (data) {
             totalJobCount = data.jobs.length;
+            console.log("start counter " + totalJobCount);
             data.jobs.forEach(function (item) {
                 addJob(item);
             })
@@ -37,7 +40,12 @@ module.exports = {
 
 // updates meta in the database
 function updateAppState() {
+
+    console.log("total job countdown " + totalJobCount);
+    console.log("new job total " + newJobsImported);
+
     if  ( totalJobCount == 0 && newJobsImported > 0) { // only update app state if there are new jobs
+            console.log("updateapp state in db");
 
             AppState.findById(env.APP_STATE_ID, function (err, update) {
                 if (err) {
@@ -45,7 +53,6 @@ function updateAppState() {
                 }
                 update.newjobs = newJobsImported;
                 update.updated_at = new Date();
-                console.log( newJobsImported + " added at " + update.updated_at)
 
                 update.save(function(err) {
                     if (err)
@@ -61,10 +68,12 @@ function updateAppState() {
 // keep track of number added in newJobsImported.
 
 function addJob(item){
-    Job.count({job_id: item.job_id}, function (err, count){
-        if (count <= 0) {  // collection does not exist - add job to mongoDB
-            newJobsImported++;
 
+
+    Job.count({job_id: item.job_id}, function (err, count){
+
+
+        if (count <= 0) {  // collection does not exist - add job to mongoDB
             var newJob = new Job({  //add new DB entry
                 title: item.title,
                 salary: item.salary,
@@ -77,9 +86,10 @@ function addJob(item){
             newJob.save(function (err) {
                 if (err)
                     res.send(err);
-            })
+            });
+            newJobsImported++;
         }
         totalJobCount--;
         updateAppState();
-    })
+    });
 }

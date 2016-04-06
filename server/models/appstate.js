@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 
 // create a schema for app meta-data
 var appstateSchema = new Schema({
-  newjobs: String,
+  newjobs: Number,
   updated_at: Date
 });
+
+
 
 
 //on every save, add the date
