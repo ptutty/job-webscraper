@@ -26,19 +26,29 @@ angular.module('jobsController', [])
 			 $scope.loading = false;
 		});
 
-		// longlist sorting ++++++++++++++++++++++++++
-		$scope.sortField = "deadline";
-  	$scope.descending = false;
+		// joblist sorting ++++++++++++++++++++++++++
 
-		$scope.sort = function (newSortField) {
-			console.log("sort by" + newSortField);
-		  if ($scope.sortField == newSortField) {
-				$scope.descending = !$scope.descending;
+		$scope.jobSortby = [
+		  {
+		    value: 'deadline',
+		    label: 'Deadline'
+		  },
+		  {
+		    value: 'title',
+		    label: 'Title'
+		  },
+		  {
+		    value: 'salary',
+		    label: 'Salary'
+		  },
+		  {
+		    value: 'oldest',
+		    label: 'Oldest'
+		  }
+		  ];     
 
-			} else {
-				$scope.sortField = newSortField;
-			}
-			return false;
-		}
+
+
+
 	}]);
 

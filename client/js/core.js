@@ -6,7 +6,7 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'appService', 'auth
 .config(function($routeProvider, $httpProvider, $locationProvider) {
         $routeProvider
             .when('/job/:id', {
-                templateUrl : 'pages/jobdetails.html',
+                templateUrl : 'pages/jobfulldetails.html',
                 controller: 'editJobController',
                 restricted: false
             })
@@ -21,7 +21,7 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'appService', 'auth
                 restricted: true
             })
             .when('/', {
-                templateUrl : 'pages/longlist.html',
+                templateUrl : 'pages/jobshome.html',
                 controller: 'jobListController',
                 restricted: false
             })
