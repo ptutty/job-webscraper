@@ -6,14 +6,14 @@
   
     <!-- Logo -->
     <div id="logo">
-      <h1><a href="index.html"><img src="images/logo.png" alt="Work Scout" /></a></h1>
+      <h1><a href="/"><img src="images/logo.png" alt="Uni Posts" /></a></h1>
     </div>
 
     <!-- Menu -->
     <nav id="navigation" class="menu" ng-controller="logoutController">
       <ul id="responsive">
 
-        <li><a href="index.html" id="current">Home</a>
+        <li><a href="/" id="current">Home</a>
          <!--  <ul>
             <li><a href="index.html">Home #1</a></li>
             <li><a href="index-2.html">Home #2</a></li>
@@ -34,7 +34,7 @@
         </li> -->
 
   
-        <li><a href="#">For Employers</a>
+        <li><a href="/">For Employers</a>
           <ul>
             <li><a href="add-job.html">Add Job</a></li>
             <li><a href="manage-jobs.html">Manage Jobs</a></li>
@@ -51,10 +51,10 @@
          <li ng-show="isloggedIn"><a href="#"><i class="fa fa-user"></i> User:  {{ currentuser.username }} </a>
           <ul>
             <li><a href="/#/shortlist/">Shortlisted Jobs </a></li>
-            <li><a href="browse-jobs.html">My Feed</a></li>
+           <!--  <li><a href="browse-jobs.html">My Feed</a></li>
             <li><a href="add-resume.html">Add Resume</a></li>
             <li><a href="manage-resumes.html">Manage Resumes</a></li>
-            <li><a href="job-alerts.html">Job Alerts</a></li>
+            <li><a href="job-alerts.html">Job Alerts</a></li> -->
             <li><a ng-click='logout()'>Log out</a></li>
           </ul>
         </li>

@@ -1,35 +1,74 @@
 
-<div class="jumbotron text-center">
-  <h2>Shortlisted jobs  <span class="label label-info">{{ shortlist.length }}</span></h2>
-
-<!-- TODO LIST -->
-<div id="shortlist" class="row">
-  <div class="col-md-12">
-    <table class="table">
-    <thead> <tr> <th>status</th> <th></th> <th></th> <th><span class="text-center">Deadline</a></th> </tr> </thead>
-
-
-      <tr ng-repeat="job in shortlist">
-      <th scope="row">
-        <button class="btn btn-default" type="submit" ng-click="shortlist(job.job_id)"><span class="glyphicon glyphicon-eye-open"></span></button>
 
 
 
-      </th>
-      <td><a ng-href="#/job/{{job._id }}"> {{ job.title }} </a></td>
-      <td>{{ job.employer}} </td> <td>{{ job.deadline }} </td>
-     </tr>
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="single">
+  <div class="container">
 
+    <div class="sixteen columns">
+      <h2>Shortlisted Jobs </h2>
+      <nav id="breadcrumbs">
+        <ul>
+          <li>{{ shortlist.length }} Jobs in your shortlist</li>
 
-    </table>
-
-
-
-    <p class="text-center" ng-show="loading">
-      <span class="fa fa-spinner fa-spin fa-3x"></span>
-    </p>
+        </ul>
+      </nav>
+    </div>
 
   </div>
 </div>
 
-</div>
+
+<!-- Content
+================================================== -->
+<div class="container">
+  
+  <!-- Table -->
+  <div class="sixteen columns">
+
+    <p class="margin-bottom-25">Your shortlisted jobs are shown in the table below. Expired Jobs will be automatically removed after 30 days.</p>
+
+    <table class="manage-table responsive-table">
+
+      <tr>
+        <th><i class="fa fa-file-text"></i> Title</th>
+        <th><i class="fa fa-check-square-o"></i> Applied For</th>
+        <th><i class="fa fa-calendar"></i> Date Posted</th>
+        <th><i class="fa fa-calendar"></i> Date Expires</th>
+        <th><i class="fa fa-user"></i> Interview</th>
+        <th></th>
+      </tr>
+          
+      <!-- Item #1 -->
+      <tr ng-repeat="job in shortlist">
+        <td class="title"><a ng-href="#/job/{{job._id }}">{{ job.title }} </a></td>
+        <td class="centered">-</td>
+        <td>September 30, 2015</td>
+        <td>{{ job.deadline | date:'fullDate' }}  </td>
+        <td class="centered">-</td>
+         <td class="action">
+            <a href="#" ng-href="/#/job/edit/{{job._id}}"> <i class="fa fa-pencil"></i> Edit</a>
+            <a href="#"><i class="fa  fa-check "></i> Mark Applied for</a>
+             <a href="#"><i class="fa  fa-check "></i> Invite to interview</a>
+            <a href="#" ng-click="deleteFromShortList()" class="delete"><i class="fa fa-remove"></i> Delete</a>
+          </td>
+      </tr>
+          
+     
+
+
+    </table>
+
+    <br>
+    <a href="/" class="button">Add Another Job</a>
+
+  </div>
+
+
+
+
+
+
+
