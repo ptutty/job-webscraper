@@ -30,7 +30,7 @@ module.exports = {
         require('../helpers/jobscraper_async')(function(err, alljobs) {
             if (err) {
             } else {
-                //console.log(alljobs);
+                console.log(alljobs);
                 totalJobCount = alljobs.length;
                 alljobs.forEach(function (item) {
                     addJob(item);
