@@ -27,7 +27,6 @@ module.exports = {
         newJobsImported = 0;
         Jobsimport.get(function (data) {
             totalJobCount = data.jobs.length;
-            console.log("start counter " + totalJobCount);
             data.jobs.forEach(function (item) {
                 addJob(item);
             })
@@ -41,11 +40,7 @@ module.exports = {
 // updates meta in the database
 function updateAppState() {
 
-    console.log("total job countdown " + totalJobCount);
-    console.log("new job total " + newJobsImported);
-
     if  ( totalJobCount == 0 && newJobsImported > 0) { // only update app state if there are new jobs
-            console.log("updateapp state in db");
 
             AppState.findById(env.APP_STATE_ID, function (err, update) {
                 if (err) {
