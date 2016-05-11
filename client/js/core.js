@@ -1,6 +1,6 @@
 
 
-angular.module('gizzaJob', ['jobsController', 'jobsService', 'appService', 'authService', 'shortlistService' , 'ngRoute'])
+angular.module('gizzaJob', ['jobsController', 'jobsService', 'appService', 'authService', 'shortlistService' , 'ngRoute' , 'ngSanitize'])
 
 
 .config(function($routeProvider, $httpProvider, $locationProvider) {
