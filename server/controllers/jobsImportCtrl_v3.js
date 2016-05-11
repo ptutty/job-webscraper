@@ -4,9 +4,10 @@
 
 var Job = require('../models/job'); // job model
 var AppState = require('../models/appstate'); // app state model
-var Jobsimport = require('../helpers/jobscrape'); //  module to import jobs
 var env  = require('dotenv').config();
 var newJobsImported, totalJobCount;
+
+
 
 module.exports = {
 
@@ -25,13 +26,19 @@ module.exports = {
     importJobs: function () { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
 
         newJobsImported = 0;
-        Jobsimport.get(function (data) {
-            totalJobCount = data.jobs.length;
-            console.log("start counter " + totalJobCount);
-            data.jobs.forEach(function (item) {
-                addJob(item);
-            })
-        })
+        
+        require('../helpers/jobscraper_async')(function(err, alljobs) {
+            if (err) {
+            } else {
+                //console.log(alljobs);
+                totalJobCount = alljobs.length;
+                alljobs.forEach(function (item) {
+                    addJob(item);
+                })
+            }
+        });
+        
+
     }
 };
 
@@ -74,18 +81,21 @@ function addJob(item){
 
 
         if (count <= 0) {  // collection does not exist - add job to mongoDB
+            console.log("adding: " + item.job_id);
             var newJob = new Job({  //add new DB entry
                 title: item.title,
                 salary: item.salary,
                 employer: item.employer,
                 url: item.href,
                 deadline: item.deadline,
-                job_id: item.job_id
+                job_id: item.job_id,
+                description: item.description,
+                location: item.location
             });
 
             newJob.save(function (err) {
                 if (err)
-                    res.send(err);
+                    console.log(err);
             });
             newJobsImported++;
         }

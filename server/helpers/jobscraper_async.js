@@ -3,6 +3,9 @@ var http = require('http');
 var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
+var moment = require('moment');
+moment().format();
+
 
 
 var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=2';
@@ -70,9 +73,24 @@ function jobDetailScrape(url, forEachCallback) {
             $advert_details_right = $content.find('table.advert-details-right tr');
             jobDetails.salary = $advert_details_left.eq(1).find('td').eq(1).text().trim();
             jobDetails.location = $advert_details_left.eq(0).find('td').eq(1).text().trim();
-            jobDetails.deadline = $advert_details_right.eq(1).find('td').eq(1).text().trim();
-            jobDetails.description = $content.find('div.section').eq(1).html();
+
+            // dates
+            var rawdatestring = $advert_details_right.eq(1).find('td').eq(1).text().trim();
+            var datesplit = (rawdatestring).split(' ');
+            var day = datesplit[0].replace(/\D/g,'');
+            jobDetails.deadline = stringToDate(day, datesplit[1], datesplit[2]);
+
+
+            //description
+            var destext = $content.find('div.section').eq(1).html();
+            jobDetails.description = destext.replace(/(\r\n|\n|\r)/gm,""); // removes line breaks
             jobDetails.href = $content.find("#job-apply-button > a").attr('href');
+
+            // unique id
+            var temp = $content.find("div.fb-share-button").attr('data-href');
+            var urlparts = temp.split('/');
+            jobDetails.job_id = urlparts[4];
+
 
             urlListData.push(jobDetails);
             forEachCallback();
@@ -81,7 +99,13 @@ function jobDetailScrape(url, forEachCallback) {
 }
 
 
+// add to mongodb as date object
+function stringToDate(day, month, year) {
+    var newDateString = year + "/"  + month + "/" + day;
+    var newDateObj = new Date(newDateString);
+    return newDateObj
 
+}
 
 
 

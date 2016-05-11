@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb39ff4-980d-4d25-b606-a22d5ff2e5b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/helpers/jobscraper_async.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/helpers/jobscrape_v2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/helpers/scraper_test.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/controllers/jobsImportCtrl_v3.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/controllers/jobsImportCtrl_v2.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/jobsCtrl.js" afterPath="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers/cronjobs.js" afterPath="$PROJECT_DIR$/server/helpers/cronjobs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers/jobscraper_async.js" afterPath="$PROJECT_DIR$/server/helpers/jobscraper_async.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/job.js" afterPath="$PROJECT_DIR$/server/models/job.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/api.js" afterPath="$PROJECT_DIR$/server/routes/api.js" />
     </list>
     <ignored path="gizzajob.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +33,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="jobscraper_async.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper_async.js">
+      <file leaf-file-name="jobsImportCtrl_v3.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl_v3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="806">
+              <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobsImportCtrl_v2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl_v2.js">
+      <file leaf-file-name="jobsImportCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jobscrape.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/helpers/jobscrape.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="65" column="49" selection-start-line="62" selection-start-column="4" selection-end-line="65" selection-end-column="49" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jobscraper_async.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper_async.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/routes/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="722">
+              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jobsCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/jobsCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1501">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,7 +113,6 @@
         <option value="$PROJECT_DIR$/server/controllers/jobsUpdateCtrl.js" />
         <option value="$PROJECT_DIR$/dev-todo.txt" />
         <option value="$PROJECT_DIR$/server/helpers/tests.js" />
-        <option value="$PROJECT_DIR$/server/models/job.js" />
         <option value="$PROJECT_DIR$/server/helpers/DatePretty.js" />
         <option value="$PROJECT_DIR$/server/controllers/shortlistCtrl.js" />
         <option value="$PROJECT_DIR$/server/helpers/jobspretty.js" />
@@ -76,7 +120,6 @@
         <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/client/js/core.js" />
         <option value="$PROJECT_DIR$/client/test.html" />
-        <option value="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
         <option value="$PROJECT_DIR$/client/js/controllers/main.js" />
         <option value="$PROJECT_DIR$/client/pages/longlist.html" />
         <option value="$PROJECT_DIR$/client/pages/settings.html" />
@@ -86,14 +129,18 @@
         <option value="$PROJECT_DIR$/server/.env" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsTidyCtrl.js" />
-        <option value="$PROJECT_DIR$/server/routes/api.js" />
-        <option value="$PROJECT_DIR$/server/helpers/cronjobs.js" />
         <option value="$PROJECT_DIR$/server/models/appstate.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/server/helpers/scraper_test_async.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl_v2.js" />
+        <option value="$PROJECT_DIR$/server/models/job.js" />
+        <option value="$PROJECT_DIR$/server/helpers/cronjobs.js" />
+        <option value="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
+        <option value="$PROJECT_DIR$/server/routes/api.js" />
+        <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl_v3.js" />
+        <option value="$PROJECT_DIR$/server/helpers/jobscraper_async.js" />
       </list>
     </option>
   </component>
@@ -103,10 +150,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="524" />
-    <option name="y" value="22" />
-    <option name="width" value="1575" />
-    <option name="height" value="1279" />
+    <option name="x" value="692" />
+    <option name="y" value="33" />
+    <option name="width" value="1756" />
+    <option name="height" value="1238" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -231,6 +278,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/controllers" />
       <recent name="$PROJECT_DIR$/server/helpers" />
     </key>
   </component>
@@ -314,18 +362,18 @@
       <workItem from="1459932585515" duration="5597000" />
       <workItem from="1462787499181" duration="1282000" />
       <workItem from="1462952216178" duration="4000" />
-      <workItem from="1462952221943" duration="7143000" />
+      <workItem from="1462952221943" duration="12594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67390000" />
+    <option name="totallyTimeSpent" value="72841000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="524" y="22" width="1575" height="1279" extended-state="0" />
+    <frame x="692" y="33" width="1756" height="1238" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16698413" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.120159455" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059814658" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -489,16 +537,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl_v2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="133">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/job.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="22" selection-start-line="6" selection-start-column="2" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1501">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl_v3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpers/jobscrape.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="65" column="49" selection-start-line="62" selection-start-column="4" selection-end-line="65" selection-end-column="49" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper_async.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="323">
+          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
           <folding />
         </state>
       </provider>

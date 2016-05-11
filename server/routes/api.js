@@ -1,6 +1,6 @@
 var Jobsctrl = require('../controllers/jobsCtrl'); // jobs controller
 var Shortlistsctrl = require('../controllers/shortlistCtrl'); // shortlist controller
-var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist controller
+var JobsImportCtrl = require('../controllers/jobsImportCtrl_v3');
 var JobsTidyCtrl = require('../controllers/jobsTidyCtrl'); // tidy up old jobs
 
 module.exports = function (app) {

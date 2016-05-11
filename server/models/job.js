@@ -6,12 +6,14 @@ var Schema = mongoose.Schema;
 var jobSchema = new Schema({
   title: String,
   url: String,
+  location: String,
   employer: String,
   salary: String,
   deadline: Date,
   job_id: String,
   created_at: Date,
-  updated_at: Date
+  updated_at: Date,
+  description: String,
 });
 
 
