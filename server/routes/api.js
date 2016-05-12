@@ -1,6 +1,6 @@
 var Jobsctrl = require('../controllers/jobsCtrl'); // jobs controller
 var Shortlistsctrl = require('../controllers/shortlistCtrl'); // shortlist controller
-var JobsImportCtrl = require('../controllers/jobsImportCtrl_v3');
+var JobsImportCtrl = require('../controllers/jobsImportCtrl'); //import jobs into MongoDB
 var JobsTidyCtrl = require('../controllers/jobsTidyCtrl'); // tidy up old jobs
 
 module.exports = function (app) {
@@ -37,7 +37,7 @@ module.exports = function (app) {
 
     // import bulk jobs
     app.get('/api/import', function (req, res) {
-        JobsImportCtrl.importJobs();
+        JobsImportCtrl.importJobs(res);
     });
 
     // gets meta information from mongoDB about last import and new job

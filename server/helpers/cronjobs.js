@@ -2,7 +2,7 @@
  * Created by ptutty on 30/03/2016.
  */
 var JobsTidyCtrl = require('../controllers/jobsTidyCtrl'); // tidy up old jobs
-var JobsImportCtrl = require('../controllers/jobsImportCtrl_v3'); // shortlist controller
+var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist controller
 
 var CronJob = require('cron').CronJob;
 

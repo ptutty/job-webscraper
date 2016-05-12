@@ -8,12 +8,11 @@ var env  = require('dotenv').config();
 var newJobsImported, totalJobCount;
 
 
-
+// JOB import controllers ==========================================
 module.exports = {
 
-    // JOB import controllers ==========================================
-    // gets app state info - last job import timestamp , new jobs since last import
 
+    // gets app state info - last job import timestamp , new jobs since last import
     getAppState: function (res) {
         AppState.findById(AppState.objectID, function (err, data) {
             if (err) {
@@ -22,23 +21,19 @@ module.exports = {
             res.json(data); // returns job in JSON format
         })
     },
-
-    importJobs: function () { // bulk imports jobs into mongoDB from jobs.ac.uk scrape
-
+    // bulk imports jobs into mongoDB from jobs.ac.uk scrape
+    importJobs: function (res) {
         newJobsImported = 0;
-        
-        require('../helpers/jobscraper_async')(function(err, alljobs) {
+        require('../helpers/jobscraper')(function(err, alljobs) {
             if (err) {
             } else {
-                console.log(alljobs);
                 totalJobCount = alljobs.length;
                 alljobs.forEach(function (item) {
                     addJob(item);
                 })
+                res.json(alljobs);
             }
         });
-        
-
     }
 };
 
