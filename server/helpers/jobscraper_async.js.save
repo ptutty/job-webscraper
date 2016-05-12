@@ -68,7 +68,7 @@ function jobDetailScrape(url, forEachCallback) {
             $ = cheerio.load(html);
             var $content = $('div.content');
             jobDetails.title = $content.find('h1').text();
-            jobDetails.employer = $content.find('h3').first().text();
+            jobDetails.employer = $content.find('h3').first();
             $advert_details_left = $content.find('table.advert-details-left tr');
             $advert_details_right = $content.find('table.advert-details-right tr');
             jobDetails.salary = $advert_details_left.eq(1).find('td').eq(1).text().trim();
@@ -88,7 +88,7 @@ function jobDetailScrape(url, forEachCallback) {
 
             // unique id
             
-	   var temp = $content.find("div.fb-share-button").attr('data-href');
+	   var temp = $content.find("div.fb-share-button").attr('data-href').text();
 	   if (typeof temp === 'string') {
 		var urlparts = temp.split('/');
 		jobDetails.job_id = urlparts[4];
