@@ -68,32 +68,32 @@ function jobDetailScrape(url, forEachCallback) {
             $ = cheerio.load(html);
             var $content = $('div.content');
             jobDetails.title = $content.find('h1').text();
-            jobDetails.employer = $content.find('h3').first();
+            jobDetails.employer = $content.find('h3').first().text();
             $advert_details_left = $content.find('table.advert-details-left tr');
             $advert_details_right = $content.find('table.advert-details-right tr');
             jobDetails.salary = $advert_details_left.eq(1).find('td').eq(1).text().trim();
             jobDetails.location = $advert_details_left.eq(0).find('td').eq(1).text().trim();
 
             // dates
-            var rawdatestring = $advert_details_right.eq(1).find('td').eq(1).text().trim();
-            var datesplit = (rawdatestring).split(' ');
-            var day = datesplit[0].replace(/\D/g,'');
-            jobDetails.deadline = stringToDate(day, datesplit[1], datesplit[2]);
-
+            var rawdate = $advert_details_right.eq(1).find('td').eq(1).text().trim();
+            if (typeof rawdate === 'string') {
+                var datesplit = (rawdate).split(' ');
+                var day = datesplit[0].replace(/\D/g,'');
+                jobDetails.deadline = stringToDate(day, datesplit[1], datesplit[2]);
+            }
 
             //description
             var destext = $content.find('div.section').eq(1).html();
-		jobDetails.description = destext;
+		    jobDetails.description = destext;
             jobDetails.href = $content.find("#job-apply-button > a").attr('href');
 
-            // unique id
-            
-	   var temp = $content.find("div.fb-share-button").attr('data-href').text();
-	   if (typeof temp === 'string') {
-		var urlparts = temp.split('/');
-		jobDetails.job_id = urlparts[4];
-		}
-		
+            // create unique id for job based on something unique on tha page
+            var temp = $content.find("div.fb-share-button").attr('data-href');
+            if (typeof temp === 'string') {
+                var urlparts = temp.split('/');
+                jobDetails.job_id = urlparts[4];
+            }
+
             urlListData.push(jobDetails);
             forEachCallback();
         };
