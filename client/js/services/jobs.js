@@ -26,6 +26,10 @@ angular.module('jobsService', [])
 			},
 			tidy : function() {
 				return $http.get('/api/jobsclean/');
+			},
+			search : function(searchterm) {
+				// return $http.post('/api/search/');
+				return $http.post('/api/search/', searchterm);
 			}
 		}
 	}]);

@@ -2,6 +2,8 @@ var Jobsctrl = require('../controllers/jobsCtrl'); // jobs controller
 var Shortlistsctrl = require('../controllers/shortlistCtrl'); // shortlist controller
 var JobsImportCtrl = require('../controllers/jobsImportCtrl'); //import jobs into MongoDB
 var JobsTidyCtrl = require('../controllers/jobsTidyCtrl'); // tidy up old jobs
+var JobSearch = require('../controllers/jobSearchCtrl'); // search jobs
+
 
 module.exports = function (app) {
 
@@ -17,7 +19,7 @@ module.exports = function (app) {
         Jobsctrl.getJob(req, res);
     });
 
-    // createjob and send back all jobs after creation
+    // create job and send back all jobs after creation
     app.post('/api/jobs', function (req, res) {
         Jobsctrl.createJob(req, res);
     });
@@ -32,6 +34,15 @@ module.exports = function (app) {
     app.delete('/api/job/:job_id', function (req, res) {
         Jobsctrl.deleteJob(req, res);
     });
+
+    // SEARCHING JOBS ================================================
+
+    // search for a job
+    app.post('/api/search/', function (req, res) {
+        JobSearch.getMatching(req, res);
+    });
+
+
 
     // IMPORTING and REMOVING JOBS ================================================
 

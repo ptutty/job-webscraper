@@ -13,7 +13,7 @@
     </div>
 
     <div class="six columns">
-      <a href="add-job.html" class="button">Post a Job, It’s Free!</a>
+      <a class="button">Post a Job, It’s Free!</a>
     </div>
 
   </div>
@@ -28,11 +28,12 @@
   <div class="eleven columns">
   <div class="padding-right">
     
-    <form action="#" method="get" class="list-search">
-      <button><i class="fa fa-search"></i></button>
-      <input type="text" placeholder="job title, keywords or company name" value=""/>
+    <form method="" class="list-search">
+      <button ng-click="search()" ><i class="fa fa-search"></i></button>
+      <input type="text" ng-model=formData.searchterm placeholder="job title, keywords or company name" value=""/>
       <div class="clearfix"></div>
     </form>
+    {{ formData.searchterm }}
 
     <ul class="job-list full">
 

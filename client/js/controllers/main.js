@@ -26,7 +26,7 @@ angular.module('jobsController', [])
 			 $scope.loading = false;
 		});
 
-		// joblist sorting ++++++++++++++++++++++++++
+		// joblist sorting ===============================================
 
 		$scope.jobSortby = [
 		  {
@@ -46,6 +46,22 @@ angular.module('jobsController', [])
 		    label: 'Oldest'
 		  }
 		  ];     
+
+		// search controller =====================================================
+		$scope.formData = {};
+
+		$scope.search = function() {
+
+			Jobs.search($scope.formData)
+				.success(function(data) {
+					$scope.loading = true;
+					console.log(data);
+					$scope.jobs = data;
+					$scope.loading = false;
+					$scope.formData = ""; // clear the form so our user is ready to enter another
+				});
+		};
+
 
 
 

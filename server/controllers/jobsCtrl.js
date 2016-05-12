@@ -39,7 +39,6 @@ module.exports = {
     newJob.save(function(err) {
         if (err)
           res.send(err);
-          // _this.getJobs(res);
     });
   },
 
