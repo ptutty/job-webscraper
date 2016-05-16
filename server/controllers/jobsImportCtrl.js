@@ -30,8 +30,7 @@ module.exports = {
                 totalJobCount = alljobs.length;
                 alljobs.forEach(function (item) {
                     addJob(item);
-                })
-                res.json(alljobs);
+                });
             }
         });
     }
