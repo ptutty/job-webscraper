@@ -14,6 +14,12 @@ module.exports = function (app) {
         Jobsctrl.getJobs(res);
     });
 
+
+    app.get('/api/jobs/:page', function (req, res) {
+        Jobsctrl.getJobsPaginated(res, req);
+    });
+    
+
     // get a single job
     app.get('/api/job/:job_id', function (req, res) {
         Jobsctrl.getJob(req, res);

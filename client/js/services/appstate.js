@@ -11,6 +11,6 @@ angular.module('appService', [])
 		function get() {
 			return $http.get('/api/appstate');
 		}
-
+		
 
 }]);

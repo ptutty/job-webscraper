@@ -6,14 +6,38 @@ AppState.objectID = '56e6e270b8d507b8199db10f'; //object id document holding app
 module.exports = {
   // get all jobs
   getJobs: function(res)  {
-
-      Job.find().lean().exec(function(err, doc) {
+      Job.find()
+          .lean()
+          .sort({deadline: 'asc'})
+          .exec(function(err, doc) {
           if (err) {
               res.send(err);
           }
           res.json(doc);
       });
+  },
 
+  // all jobs paginated
+  getJobsPaginated:  function(res, req)  {
+      var perPage = 5;
+      if(!req.params.page)
+      {
+          var page = 1;
+      }else{
+          var page = req.params.page;
+      }
+
+      Job.find()
+          .limit(perPage)
+          .skip(perPage * page)
+          .lean()
+          .sort({deadline: 'asc'})
+          .exec(function(err, doc) {
+              if (err) {
+                  res.send(err);
+              }
+              res.json(doc);
+          });
   },
 
   // get single job

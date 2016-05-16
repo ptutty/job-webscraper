@@ -10,7 +10,9 @@ angular.module('jobsService', [])
 				} else {
 					return $http.get('/api/jobs'); // all todos
 				}
-
+			},
+			getPaginated : function(pagenum) {
+				return $http.get('/api/jobs/' + pagenum); // page number
 			},
 			create : function(jobData) {
 				return $http.post('/api/jobs', jobData);

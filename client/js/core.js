@@ -15,6 +15,11 @@ angular.module('gizzaJob', ['jobsController', 'jobsService', 'appService', 'auth
                 controller: 'editJobController',
                 restricted: true
             })
+            .when('/page/:pagenumber', {
+                templateUrl : 'pages/jobshome.html',
+                controller: 'jobListController',
+                restricted: false
+            })
             .when('/add/', {
                 templateUrl : 'pages/createjob.html',
                 controller: 'createJobController',

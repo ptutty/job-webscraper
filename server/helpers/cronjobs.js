@@ -11,14 +11,11 @@ var CronJob = require('cron').CronJob;
 
 var job = new CronJob('00 55 8 * * 0-6', function() {
         /*
-         * Runs every weekday (Monday through Friday)
-         * at 11:30:00 AM. It does not run on Saturday
-         * or Sunday.
+         * Runs everyday
+         * at 8:55 EST or approx 1:55pm UK time - server is in NYC
          */
 
-        console.log("running the remove old jobs cron job");
         JobsTidyCtrl.checkDeadlineCron();
-        console.log("running the import cron jobs");
         JobsImportCtrl.importJobs();
 
     }, function () {
@@ -28,14 +25,3 @@ var job = new CronJob('00 55 8 * * 0-6', function() {
     'America/New_York' /* Time zone of this job. */
 );
 
-
-
-//
-// new CronJob('00 40 8 * * 0-6', function() {
-//     /*
-//      * Runs 7 days a week
-//      * at 12:30:00 PM.
-//      */
-//
-//
-// }, null, true, 'America/New_York');

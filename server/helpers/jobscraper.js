@@ -7,8 +7,8 @@ var moment = require('moment');
 moment().format();
 
 
-
-var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&show=20&sort=gl';
+/* all IT jobs on jobs.ac.uk (usually around 200) - displayed 400 at a time */
+var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=400';
 var baseURLData;
 var urlList = [];
 var urlListData = [];
