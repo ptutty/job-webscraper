@@ -9,7 +9,7 @@ var CronJob = require('cron').CronJob;
 
 
 
-var job = new CronJob('00 52 8 * * 0-6', function() {
+var job = new CronJob('00 55 8 * * 0-6', function() {
         /*
          * Runs every weekday (Monday through Friday)
          * at 11:30:00 AM. It does not run on Saturday
