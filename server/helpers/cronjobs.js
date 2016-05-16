@@ -7,7 +7,7 @@ var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist cont
 var CronJob = require('cron').CronJob;
 
 
-new CronJob('00 30 12 * * 1-7', function() {
+new CronJob('00 40 8 * * 1-7', function() {
     /*
      * Runs 7 days a week
      * at 12:30:00 PM.
@@ -17,4 +17,4 @@ new CronJob('00 30 12 * * 1-7', function() {
     console.log("running the import cron jobs");
     JobsImportCtrl.importJobs();
 
-}, null, true, 'Europe/London');
+}, null, true, 'America/New_York');
