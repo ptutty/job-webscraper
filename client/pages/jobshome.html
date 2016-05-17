@@ -28,7 +28,7 @@
   <div class="eleven columns">
   <div class="padding-right">
     
-    <form method="" class="list-search">
+    <form method="" class="list-search" ng-init="showJobsPaginated(1)">
       <button ng-click="search()" ><i class="fa fa-search"></i></button>
       <input type="text" ng-model=formData.searchterm placeholder="job title, keywords or company name" value=""/>
       <div class="clearfix"></div>
@@ -59,20 +59,29 @@
     </ul>
     <div class="clearfix"></div>
 
+
+
+
     <div class="pagination-container">
+
+
       <nav class="pagination">
         <ul>
-          <!--class="current-page"-->
-          <!--<li ng-repeat="pagenumber in pagenumbers"><a href="#" >{{ pagenumber }}</a></li>-->
+          <!-- class="current-page" -->
+          <li ng-repeat="pagenum in pageNumbers"  >
+            <!--<a ng-href="#/page/{{pagenum}}" >{{ pagenum }}</a>-->
+            <a href="" ng-click="$parent.showJobsPaginated(pagenum)" ng-class="{'current-page' : pagenum == page  }">{{ pagenum }}</a>
+          </li>
         </ul>
       </nav>
 
       <nav class="pagination-next-prev">
         <ul>
-          <li><a class="prev">Previous</a></li>
-          <li><a ng-click="pageForward()" class="next">Next</a></li>
+          <li><a href="" class="prev" ng-click="pagination('back')">Previous</a></li>
+          <li><a href="" class="next" ng-click="pagination('forward')" class="next">Next</a></li>
         </ul>
       </nav>
+
     </div>
 
 
