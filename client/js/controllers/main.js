@@ -6,11 +6,9 @@ angular.module('jobsController', [])
         
 
         // create an array of page numbers based on pagination results
-
-
-        
         $scope.showJobsPaginated = function(pagenum) {
             $scope.loading = true;
+            $scope.jobs = "";
             Jobs.paginated(pagenum)
                 .success(function(results) {
                     $scope.totaljobs = results.total;
@@ -27,8 +25,7 @@ angular.module('jobsController', [])
                 });
         }
 
-        
-        
+
         $scope.pagination = function(direction) {
             var currentpage = parseInt($scope.page);
             var gotopage;
