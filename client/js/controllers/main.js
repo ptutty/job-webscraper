@@ -3,31 +3,34 @@ angular.module('jobsController', [])
 	.controller('jobListController', ['$scope','$http', 'Jobs', 'ShortlistService' , '$routeParams' , 'AppService', function($scope, $http, Jobs, ShortlistService, $routeParams, AppService) {
 		$scope.loading = true;
 
-		if ($routeParams.pagenumber) {
-			$scope.page = $routeParams.pagenumber;
-            var pagenum = parseInt($scope.page);
-            $scope.nextpage = pagenum++;
-            $scope.prevpage = pagenum--;
-		} else {
-            // initial homepage load only
-			$scope.page = 1;
-            Jobs.get()
-                .success(function(data) {
-                    $scope.totaljobs = data.length;
-                    $scope.loading = false;
-                });
-            
-		}
 
-		// GET =====================================================================
+        
+        
+        
+        
+        
+        
+		Jobs.get()
+			.success(function(results) {
+				$scope.totaljobs = results.total;
+				$scope.page = results.page;
+				$scope.pages = results.pages;
 
-
-		// first page of all jobs
-		Jobs.getPaginated($scope.page)
-			.success(function(data) {
-				$scope.jobs = data;
+				// create array of page numbers
+				var pageNumbers = [];
+				for (var i=1; i < $scope.pages+1; i++) {
+					pageNumbers.push(i);
+				};
+				$scope.pagenumbers = pageNumbers;
+				$scope.jobs = results.docs;
 				$scope.loading = false;
 			});
+        
+        
+        $scope.pageForward = function() {
+            
+        }
+            
 
 
 		// last job import meta info
@@ -44,26 +47,8 @@ angular.module('jobsController', [])
 			 $scope.loading = false;
 		});
 
-		// joblist sorting ===============================================
 
-		$scope.jobSortby = [
-		  {
-		    value: 'deadline',
-		    label: 'Deadline'
-		  },
-		  {
-		    value: 'title',
-		    label: 'Title'
-		  },
-		  {
-		    value: 'salary',
-		    label: 'Salary'
-		  },
-		  {
-		    value: 'oldest',
-		    label: 'Oldest'
-		  }
-		  ];     
+
 
 		// search controller =====================================================
 		$scope.formData = {};

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema;
 
 
@@ -16,6 +17,7 @@ var jobSchema = new Schema({
   description: String,
 });
 
+jobSchema.plugin(mongoosePaginate);
 
 //on every save, add the date
 jobSchema.pre('save', function(next) {

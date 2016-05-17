@@ -11,14 +11,14 @@ module.exports = function (app) {
 
     // ALL JOBS =======================================================
     app.get('/api/jobs', function (req, res) {
-        Jobsctrl.getJobs(res);
+        Jobsctrl.getJobs(req, res);
     });
 
-
-    app.get('/api/jobs/:page', function (req, res) {
-        Jobsctrl.getJobsPaginated(res, req);
-    });
-    
+    // one page of result limited to 5
+    // app.get('/api/jobs/page/:page', function (res, req) {
+    //     Jobsctrl.getJobs(res, req);
+    // });
+    //
 
     // get a single job
     app.get('/api/job/:job_id', function (req, res) {
