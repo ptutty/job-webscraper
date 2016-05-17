@@ -8,7 +8,7 @@ module.exports = {
   // get all jobs
   getJobs: function(req, res)  {
 
-
+      // default options
       var options = {
           lean:     true,
           page:   1,
@@ -16,6 +16,9 @@ module.exports = {
           sort: {deadline: 'asc'}
       };
 
+      if (req.params.page) {
+          options.page = req.params.page;
+      }
 
       Job.paginate({}, options, function(err, result) {
           if (err) {

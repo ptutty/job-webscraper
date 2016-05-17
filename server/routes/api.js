@@ -9,16 +9,16 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
 
-    // ALL JOBS =======================================================
+    // all jobs
     app.get('/api/jobs', function (req, res) {
         Jobsctrl.getJobs(req, res);
     });
 
     // one page of result limited to 5
-    // app.get('/api/jobs/page/:page', function (res, req) {
-    //     Jobsctrl.getJobs(res, req);
-    // });
-    //
+    app.get('/api/jobs/page/:page', function (req, res) {
+        Jobsctrl.getJobs(req, res);
+    });
+
 
     // get a single job
     app.get('/api/job/:job_id', function (req, res) {
