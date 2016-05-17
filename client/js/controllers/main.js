@@ -2,33 +2,47 @@ angular.module('jobsController', [])
 
 	.controller('jobListController', ['$scope','$http', 'Jobs', 'ShortlistService' , '$routeParams' , 'AppService', function($scope, $http, Jobs, ShortlistService, $routeParams, AppService) {
 		$scope.loading = true;
+        var pageNumbers = [];
 
 
-        
-        
-        
-        
-        
-        
-		Jobs.get()
-			.success(function(results) {
-				$scope.totaljobs = results.total;
-				$scope.page = results.page;
-				$scope.pages = results.pages;
+        // show first page of jobs on initial page load
+        showJobsPaginated(1);
 
-				// create array of page numbers
-				var pageNumbers = [];
-				for (var i=1; i < $scope.pages+1; i++) {
-					pageNumbers.push(i);
-				};
-				$scope.pagenumbers = pageNumbers;
-				$scope.jobs = results.docs;
-				$scope.loading = false;
-			});
+
+        // create an array of page numbers based on pagination results
+
+
+
+
+        function showJobsPaginated(pagenum) {
+            Jobs.paginated(pagenum)
+                .success(function(results) {
+                    $scope.totaljobs = results.total;
+                    $scope.page = results.page;
+                    $scope.pages = results.pages;
+                    $scope.pagenumbers = pageNumbers;
+                    $scope.jobs = results.docs;
+                    $scope.loading = false;
+
+                    if (!pageNumbers.length) {
+                        for (var i=1; i < $scope.pages+1; i++) {
+                            pageNumbers.push(i);
+                        }
+                    }
+                });
+        }
+
         
         
         $scope.pageForward = function() {
-            
+            var arrlen = pageNumbers.length;
+            console.log(arrlen);
+            var next = parseInt($scope.page) + 1;
+
+            if (next <= arrlen) {
+                console.log(next);
+                showJobsPaginated(next);
+            }
         }
             
 

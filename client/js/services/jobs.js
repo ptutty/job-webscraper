@@ -11,8 +11,8 @@ angular.module('jobsService', [])
 					return $http.get('/api/jobs'); // all todos
 				}
 			},
-			getPaginated : function(pagenum) {
-				return $http.get('/api/jobs/' + pagenum); // page number
+			paginated : function(pagenum) {
+				return $http.get('/api/jobs/page/' + pagenum); // page number
 			},
 			create : function(jobData) {
 				return $http.post('/api/jobs', jobData);
