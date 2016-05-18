@@ -1,11 +1,11 @@
 angular.module('jobsController', [])
 
-	.controller('jobListController', ['$scope','$http', 'Jobs', 'ShortlistService' , '$routeParams' , 'AppService', function($scope, $http, Jobs, ShortlistService, $routeParams, AppService) {
+	.controller('jobListController', ['$scope','$http', 'Jobs', 'ShortlistService' , '$routeParams' , 'AppService' , '$location', function($scope, $http, Jobs, ShortlistService, $routeParams, AppService, $location) {
 		$scope.loading = true;
-        $scope.pageNumbers = [];
-        
 
-        // create an array of page numbers based on pagination results
+
+        /* Job search results paginated */
+
         $scope.showJobsPaginated = function(pagenum) {
             $scope.loading = true;
             $scope.jobs = "";
@@ -17,28 +17,30 @@ angular.module('jobsController', [])
                     $scope.jobs = results.docs;
                     $scope.loading = false;
 
-                    if (!$scope.pageNumbers.length) {
-                        for (var i=1; i < $scope.pages+1; i++) {
-                            $scope.pageNumbers.push(i);
-                        }
+                    // PAGINATION CONTROLS LOGIC
+                    $scope.pageNumbers = [];
+                    for (var i=1; i < $scope.pages+1; i++) {
+                        $scope.pageNumbers.push(i);
                     }
+                    var currentpage = parseInt($scope.page);
+
+                    // work out previous and next page
+                    if (currentpage > 0 ) {
+                        $scope.previouspage = currentpage - 1;
+                    }
+                    $scope.nextpage = currentpage + 1;
                 });
+        };
+
+        if ($routeParams.pagenumber) {
+            $scope.showJobsPaginated($routeParams.pagenumber);
+        } else {
+            $scope.showJobsPaginated(1);
         }
 
 
-        $scope.pagination = function(direction) {
-            var currentpage = parseInt($scope.page);
-            var gotopage;
-            if (direction === 'forward') {
-                gotopage = currentpage + 1;
-            } else {
-                gotopage = currentpage - 1;
-            }
-            if (gotopage <= $scope.pageNumbers.length && gotopage > 0) {
-                console.log(gotopage);
-                $scope.showJobsPaginated(gotopage);
-            }
-        };
+
+
             
 
 
