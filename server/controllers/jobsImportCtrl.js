@@ -34,7 +34,6 @@ module.exports = {
                 alljobs.forEach(function (item) {
                     addJob(item);
                 });
-                res.json(alljobs); // returns job in JSON format
             }
         });
     }
