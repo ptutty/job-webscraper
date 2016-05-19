@@ -9,7 +9,7 @@ var CronJob = require('cron').CronJob;
 
 
 
-var job = new CronJob('00 55 8 * * 0-6', function() {
+var job = new CronJob('00 25 12 * * 0-6', function() {
         /*
          * Runs everyday
          * at 8:55 EST or approx 1:55pm UK time - server is in NYC
