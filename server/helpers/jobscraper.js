@@ -1,6 +1,7 @@
 
 var http = require('http');
 var request = require('request');
+var separateReqPool = {maxSockets: 1};
 var cheerio = require('cheerio');
 var async = require('async');
 var moment = require('moment');
@@ -8,12 +9,11 @@ moment().format();
 
 
 /* all IT jobs on jobs.ac.uk (usually around 200) - displayed 400 at a time */
-var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=400';
+// var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=400';
+var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=250';
 var baseURLData;
 var urlList = [];
 var urlListData = [];
-
-
 
 
 module.exports = function(moduleCallback) {
@@ -25,6 +25,8 @@ module.exports = function(moduleCallback) {
                 if (!error) {
                     baseURLData = html;
                     callback();
+                } else {
+                    console.log("first callback error" + error);
                 }
             });
         },
@@ -43,10 +45,13 @@ module.exports = function(moduleCallback) {
         },
         // for each url in urls list request url and scrape job details
         function () {
-            async.forEach(urlList, function (url, forEachCallback) {
+            console.log(urlList);
+            async.eachSeries(urlList, function (url, forEachCallback) {
                 jobDetailScrape(url, forEachCallback);
             }, function (err) {
-                if (err) cb(err, null);
+                if (err) {
+                   console.log("error in asynn foreach callback " + err);
+                };
                 moduleCallback(null, urlListData);
             });
         }
@@ -67,22 +72,31 @@ function jobDetailScrape(url, forEachCallback) {
         'deadline': null,
         'description': null
     };
-
-    request(url, function(error, response, html){
+    request({url: url, pool: separateReqPool}, function(error, response, html){
         if (error) {
+            console.log("second callback error" + error);
         } else {
+            console.log('request success ' + url);
             $ = cheerio.load(html);
-
             // jobs.ac.uk has two job display templates - 'standard' and 'enhanced' - code for this
             var enhanced = false;
             var $standardcontent = $('div.content');
             var $enhancedcontent = $('div#enhanced-content');
+            var $wmgstylecontent = $('div#allContent');
 
             if ($standardcontent.length === 1) {
                 doScrape($standardcontent, enhanced);
             } else if ($enhancedcontent.length === 1) {
                 enhanced = true;
                 doScrape($enhancedcontent, enhanced);
+            } else if ($wmgstylecontent.length === 1 ) {
+
+                // needs work for wmg style content template
+                jobDetails.title = $wmgstylecontent.find('h1').text();
+                var urlparts = url.split('/');
+                jobDetails.job_id = urlparts[2];
+                urlListData.push(jobDetails);
+                forEachCallback();
             }
 
             function doScrape($content, enhanced){
@@ -103,7 +117,6 @@ function jobDetailScrape(url, forEachCallback) {
                     jobDetails.location = $advert_details_left.eq(0).find('td').eq(1).text().trim();
                     var rawdate = $advert_details_right.eq(1).find('td').eq(1).text().trim();
                     var destext = $content.find('div.section').eq(1).html();
-
                 }
 
                 //description
@@ -119,7 +132,7 @@ function jobDetailScrape(url, forEachCallback) {
                 // job link
                 jobDetails.href = $content.find("#job-apply-button > a").attr('href');
 
-                // create unique id for job based on something unique on tha page
+                // job ID
                 var temp = $content.find("div.fb-share-button").attr('data-href');
                 if (typeof temp === 'string') {
                     var urlparts = temp.split('/');

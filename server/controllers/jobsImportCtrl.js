@@ -26,11 +26,15 @@ module.exports = {
         newJobsImported = 0;
         require('../helpers/jobscraper')(function(err, alljobs) {
             if (err) {
+                res.json(err);
             } else {
                 totalJobCount = alljobs.length;
+                console.log('finished all scraping');
+                console.log('jobs scraped ' + totalJobCount );
                 alljobs.forEach(function (item) {
                     addJob(item);
                 });
+                res.json(alljobs); // returns job in JSON format
             }
         });
     }

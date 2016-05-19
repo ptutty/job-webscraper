@@ -12,7 +12,7 @@ module.exports = {
       var options = {
           lean:     true,
           page:   1,
-          limit:    5,
+          limit:    25,
           sort: {deadline: 'asc'}
       };
 

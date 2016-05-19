@@ -7,6 +7,7 @@ var JobSearch = require('../controllers/jobSearchCtrl'); // search jobs
 
 module.exports = function (app) {
 
+
     // api ---------------------------------------------------------------------
 
     // all jobs
@@ -22,7 +23,7 @@ module.exports = function (app) {
 
     // get a single job
     app.get('/api/job/:job_id', function (req, res) {
-        Jobsctrl.getJob(req, res);
+            Jobsctrl.getJob(req, res);
     });
 
     // create job and send back all jobs after creation
