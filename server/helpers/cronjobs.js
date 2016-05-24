@@ -10,7 +10,7 @@ var cron = require('cron');
 
 // running job every 1 minutes:
 var cronJob = cron.job("0 */1 * * * *", function(){
-    console.info('cron job completed' + date );
+    console.info('cron job completed');
 });
 cronJob.start();
 
