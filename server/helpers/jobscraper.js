@@ -10,7 +10,10 @@ moment().format();
 
 /* all IT jobs on jobs.ac.uk (usually around 200) - displayed 400 at a time */
 
-var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=250';
+// var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=250';
+
+
+var baseURL = 'http://www.jobs.ac.uk/search/?keywords=e+learning&salary_from=&salary_to=&jobtype=&location=&sector=&show=15&x=0&y=0';
 var baseURLData;
 var urlList = [];
 var urlListData = [];
@@ -33,12 +36,11 @@ module.exports = function(moduleCallback) {
         // traverse baseurl html for job links and add to array or urls
         function (callback) {
             $ = cheerio.load(baseURLData);
-            var jobs = $('div.result');
+            var jobs = $('div.result:not(.highlight)'); // ignore fancy template denoted by .highlight in jobs.ac.uk for now
             jobs.each(function (i, elem) {
-
                 var $this = $(this);
-                console.log("url to crawl: "  + $this.find('a').attr('href'));
-                urlList.push('http://www.jobs.ac.uk' + $this.find('a').attr('href'));
+                    console.log("url to crawl: "  + $this.find('a').attr('href'));
+                    urlList.push('http://www.jobs.ac.uk' + $this.find('a').attr('href'));
             });
             callback();
 
@@ -78,7 +80,7 @@ function jobDetailScrape(url, forEachCallback) {
         } else {
             console.log('request success ' + url);
             $ = cheerio.load(html);
-            // jobs.ac.uk has two job display templates - 'standard' and 'enhanced' - code for this
+            // jobs.ac.uk has three job display templates - 'standard' , 'enhanced' and 'WMG'
             var enhanced = false;
             var $standardcontent = $('div.content');
             var $enhancedcontent = $('div#enhanced-content');
@@ -90,12 +92,7 @@ function jobDetailScrape(url, forEachCallback) {
                 enhanced = true;
                 doScrape($enhancedcontent, enhanced);
             } else if ($wmgstylecontent.length === 1 ) {
-
-                // needs work for wmg style content template
-                jobDetails.title = $wmgstylecontent.find('h1').text();
-                var urlparts = url.split('/');
-                jobDetails.job_id = urlparts[2];
-                urlListData.push(jobDetails);
+                // ignore these WMG template jobs for now
                 forEachCallback();
             }
 
