@@ -9,8 +9,8 @@ moment().format();
 
 
 /* all IT jobs on jobs.ac.uk (usually around 200) - displayed 400 at a time */
-// var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=400';
-var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=250';
+var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=10';
+//var baseURL = 'http://www.jobs.ac.uk/search/?category=3100&sort=gl&s=1&show=250';
 var baseURLData;
 var urlList = [];
 var urlListData = [];

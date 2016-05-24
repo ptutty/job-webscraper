@@ -8,10 +8,17 @@ var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist cont
 
 var cron = require('cron');
 
-// running job every 1 minutes:
-var cronJob = cron.job("0 */1 * * * *", function(){
-    console.info('cron job completed');
-});
+// running job every 5 minutes:
+var cronJob = cron.job("0 */5 * * * *", function(){
+        console.log("start cron job");
+        JobsTidyCtrl.checkDeadlineCron();
+        JobsImportCtrl.importJobs();
+}, function () {
+    console.log("cron job has run");
+   },
+    true,
+    'America/New_York' /* Time zone of this job. */
+);
 cronJob.start();
 
 
