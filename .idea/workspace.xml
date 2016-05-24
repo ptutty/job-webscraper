@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb39ff4-980d-4d25-b606-a22d5ff2e5b7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers/cronjobs.js" afterPath="$PROJECT_DIR$/server/helpers/cronjobs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers/jobscraper.js" afterPath="$PROJECT_DIR$/server/helpers/jobscraper.js" />
     </list>
     <ignored path="gizzajob.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cronjobs.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cronjobs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="247">
+              <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jobscraper.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -88,10 +100,10 @@
         <option value="$PROJECT_DIR$/server/helpers/test2.txt" />
         <option value="$PROJECT_DIR$/server/tests/scraper-tests.js" />
         <option value="$PROJECT_DIR$/server/routes/api.js" />
-        <option value="$PROJECT_DIR$/server/helpers/jobscraper.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl.js" />
         <option value="$PROJECT_DIR$/server/helpers/cronjobs.js" />
+        <option value="$PROJECT_DIR$/server/helpers/jobscraper.js" />
       </list>
     </option>
   </component>
@@ -161,7 +173,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gizzajob" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gizzajob" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -277,12 +307,12 @@
       <workItem from="1463578841891" duration="612000" />
       <workItem from="1463656026828" duration="12444000" />
       <workItem from="1463733629010" duration="192000" />
-      <workItem from="1463994076517" duration="3519000" />
+      <workItem from="1463994076517" duration="4124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139784000" />
+    <option name="totallyTimeSpent" value="140389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1181" y="104" width="1324" height="1061" extended-state="0" />
@@ -578,14 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -636,8 +658,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="247">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding />
         </state>
       </provider>
