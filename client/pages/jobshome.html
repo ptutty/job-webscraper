@@ -76,8 +76,8 @@
 
       <nav class="pagination-next-prev">
         <ul>
-          <li><a ng-hide="previouspage == 0" ng-href="#/page/{{previouspage}}" class="prev" >Previous</a></li>
-          <li><a ng-hide="nextpage > pages" ng-href="#/page/{{nextpage}}" class="next">Next</a></li>
+          <li><a ng-hide="previouspage == 0" ng-href="#/page/{{previouspage + query}}" class="prev" >Previous</a></li>
+          <li><a ng-hide="nextpage > pages" ng-href="#/page/{{nextpage + query}}" class="next">Next</a></li>
         </ul>
       </nav>
 
