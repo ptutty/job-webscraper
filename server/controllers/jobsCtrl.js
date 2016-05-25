@@ -26,11 +26,6 @@ module.exports = {
                   }
             res.send(result);
       });
-
-
-
-
-
   },
     
 

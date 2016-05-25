@@ -8,11 +8,15 @@ angular.module('jobsService', [])
 				if (id) {
 					return $http.get('/api/job/' + id); // single job
 				} else {
-					return $http.get('/api/jobs'); // all todos
+					return $http.get('/api/jobs'); // all jobs
 				}
 			},
-			paginated : function(pagenum) {
-				return $http.get('/api/jobs/page/' + pagenum); // page number
+			paginated : function(pagenum, query) {
+				if (query) {
+					return $http.get('/api/jobs/page/' + pagenum + '?search=' + query);
+				} else {
+					return $http.get('/api/jobs/page/' + pagenum);
+				}
 			},
 			create : function(jobData) {
 				return $http.post('/api/jobs', jobData);

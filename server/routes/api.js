@@ -10,14 +10,14 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
 
-    // all jobs
+    // all jobs paginated
     app.get('/api/jobs', function (req, res) {
         Jobsctrl.getJobs(req, res);
     });
 
-    // one page of result limited to 5
+    // get jobs specify page numbers + search params, sorting params
     app.get('/api/jobs/page/:page', function (req, res) {
-        Jobsctrl.getJobs(req, res);
+        JobSearch.getMatching(req, res);
     });
 
 
@@ -41,14 +41,6 @@ module.exports = function (app) {
     app.delete('/api/job/:job_id', function (req, res) {
         Jobsctrl.deleteJob(req, res);
     });
-
-    // SEARCHING JOBS ================================================
-
-    // search for a job
-    app.post('/api/search/', function (req, res) {
-        JobSearch.getMatching(req, res);
-    });
-
 
 
     // IMPORTING and REMOVING JOBS ================================================

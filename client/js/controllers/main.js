@@ -6,18 +6,19 @@ angular.module('jobsController', [])
 
         /* Job search results paginated */
 
-        $scope.showJobsPaginated = function(pagenum) {
+        $scope.showJobsPaginated = function(pagenum, query) {
             $scope.loading = true;
             $scope.jobs = "";
-            Jobs.paginated(pagenum)
+
+            Jobs.paginated(pagenum, query)
                 .success(function(results) {
                     $scope.totaljobs = results.total;
                     $scope.page = results.page;
                     $scope.pages = results.pages;
                     $scope.jobs = results.docs;
                     $scope.loading = false;
+                    $scope.searchtitle = "Showing all " + $scope.totaljobs + " jobs in Web, Software & IT";
 
-                    // PAGINATION CONTROLS LOGIC
                     $scope.pageNumbers = [];
                     for (var i=1; i < $scope.pages+1; i++) {
                         $scope.pageNumbers.push(i);
@@ -29,19 +30,25 @@ angular.module('jobsController', [])
                         $scope.previouspage = currentpage - 1;
                     }
                     $scope.nextpage = currentpage + 1;
+
+                    if (query) {
+                        $scope.searchtitle = results.total + " jobs found for search: " + query;
+                        $scope.query = "?search=" + query;
+                    }
+
                 });
         };
 
+        var query = $routeParams.search;
+        var pagenum = $routeParams.pagenumber;
+        console.log(pagenum);
+        console.log(query);
+
         if ($routeParams.pagenumber) {
-            $scope.showJobsPaginated($routeParams.pagenumber);
+            $scope.showJobsPaginated(pagenum, query);
         } else {
-            $scope.showJobsPaginated(1);
+            $scope.showJobsPaginated(1 , null);
         }
-
-
-
-
-            
 
 
 		// last job import meta info
@@ -59,26 +66,11 @@ angular.module('jobsController', [])
 		});
 
 
-
-
 		// search controller =====================================================
-		$scope.formData = {};
-
+		$scope.searchterm = "";
 		$scope.search = function() {
-
-			Jobs.search($scope.formData)
-				.success(function(data) {
-					$scope.loading = true;
-					console.log(data);
-					$scope.jobs = data;
-					$scope.loading = false;
-					$scope.formData = ""; // clear the form so our user is ready to enter another
-				});
+            $scope.showJobsPaginated(1 , $scope.searchterm );
+            $location.path('/page/1', false).search({'search': $scope.searchterm});
 		};
-
-
-
-
-
 	}]);
 

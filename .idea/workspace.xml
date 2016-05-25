@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb39ff4-980d-4d25-b606-a22d5ff2e5b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/helpers/jobscraper.js" afterPath="$PROJECT_DIR$/server/helpers/jobscraper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/tests/scraper-tests.js" afterPath="$PROJECT_DIR$/server/tests/scraper-tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/controllers/main.js" afterPath="$PROJECT_DIR$/client/js/controllers/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/core.js" afterPath="$PROJECT_DIR$/client/js/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/services/jobs.js" afterPath="$PROJECT_DIR$/client/js/services/jobs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/pages/jobshome.html" afterPath="$PROJECT_DIR$/client/pages/jobshome.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/jobSearchCtrl.js" afterPath="$PROJECT_DIR$/server/controllers/jobSearchCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controllers/jobsCtrl.js" afterPath="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/api.js" afterPath="$PROJECT_DIR$/server/routes/api.js" />
     </list>
     <ignored path="gizzajob.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,41 +33,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cronjobs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
+      <file leaf-file-name="jobshome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/pages/jobshome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state relative-caret-position="285">
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobscraper.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+            <state relative-caret-position="1292">
+              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scraper-tests.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/tests/scraper-tests.js">
+      <file leaf-file-name="jobs.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/services/jobs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobsImportCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl.js">
+      <file leaf-file-name="jobSearchCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controllers/jobSearchCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state relative-caret-position="931">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models/job.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -108,22 +123,22 @@
         <option value="$PROJECT_DIR$/client/css/colors/green.css" />
         <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl_v3.js" />
         <option value="$PROJECT_DIR$/server/helpers/jobscraper_async.js" />
-        <option value="$PROJECT_DIR$/server/controllers/jobSearchCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/core.js" />
         <option value="$PROJECT_DIR$/client/js/services/appstate.js" />
         <option value="$PROJECT_DIR$/server/models/job.js" />
-        <option value="$PROJECT_DIR$/client/js/services/jobs.js" />
-        <option value="$PROJECT_DIR$/client/pages/jobshome.html" />
-        <option value="$PROJECT_DIR$/client/js/controllers/main.js" />
         <option value="$PROJECT_DIR$/server/helpers/test.txt" />
         <option value="$PROJECT_DIR$/server/routes/scraper-tests.js" />
         <option value="$PROJECT_DIR$/server/helpers/test2.txt" />
-        <option value="$PROJECT_DIR$/server/routes/api.js" />
-        <option value="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
         <option value="$PROJECT_DIR$/server/controllers/jobsImportCtrl.js" />
-        <option value="$PROJECT_DIR$/server/helpers/cronjobs.js" />
         <option value="$PROJECT_DIR$/server/tests/scraper-tests.js" />
         <option value="$PROJECT_DIR$/server/helpers/jobscraper.js" />
+        <option value="$PROJECT_DIR$/server/helpers/cronjobs.js" />
+        <option value="$PROJECT_DIR$/server/routes/api.js" />
+        <option value="$PROJECT_DIR$/client/js/services/jobs.js" />
+        <option value="$PROJECT_DIR$/client/js/core.js" />
+        <option value="$PROJECT_DIR$/server/controllers/jobsCtrl.js" />
+        <option value="$PROJECT_DIR$/client/pages/jobshome.html" />
+        <option value="$PROJECT_DIR$/server/controllers/jobSearchCtrl.js" />
+        <option value="$PROJECT_DIR$/client/js/controllers/main.js" />
       </list>
     </option>
   </component>
@@ -133,10 +148,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="290" />
+    <option name="x" value="1123" />
     <option name="y" value="22" />
-    <option name="width" value="1977" />
-    <option name="height" value="1158" />
+    <option name="width" value="1260" />
+    <option name="height" value="1133" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -163,7 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -215,8 +229,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gizzajob" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gizzajob" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,13 +257,13 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/server/controllers" />
       <recent name="$PROJECT_DIR$/server/helpers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
     </key>
   </component>
   <component name="RunManager">
@@ -328,18 +357,19 @@
       <workItem from="1463656026828" duration="12444000" />
       <workItem from="1463733629010" duration="192000" />
       <workItem from="1463994076517" duration="4124000" />
-      <workItem from="1464100063461" duration="1733000" />
+      <workItem from="1464100063461" duration="1752000" />
+      <workItem from="1464168136596" duration="13863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142122000" />
+    <option name="totallyTimeSpent" value="156004000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="290" y="22" width="1977" height="1158" extended-state="0" />
+    <frame x="1123" y="22" width="1260" height="1133" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23520486" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15793651" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.059689287" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -519,13 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/jobSearchCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/controllers/createjobcontroller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -554,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/services/jobs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="77" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/theme-files/themeforest-13046688-workscout-job-board-html-template/HTML/browse-jobs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4389">
@@ -568,55 +584,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/jobshome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/helpers/test2.txt" />
     <entry file="file://$PROJECT_DIR$/server/helpers/test.txt" />
-    <entry file="file://$PROJECT_DIR$/server/models/job.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/jobsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/scraper-tests.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,10 +628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        <state relative-caret-position="1062">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -671,18 +644,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/jobsImportCtrl.js">
+    <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state relative-caret-position="304">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/helpers/jobscraper.js">
+    <entry file="file://$PROJECT_DIR$/server/helpers/cronjobs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+        <state relative-caret-position="228">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/job.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/services/jobs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" column="78" selection-start-line="67" selection-start-column="78" selection-end-line="67" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/jobSearchCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/jobshome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
           <folding />
         </state>
       </provider>
