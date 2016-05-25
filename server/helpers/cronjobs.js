@@ -9,7 +9,7 @@ var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist cont
 var cron = require('cron');
 
 // running job twice a day
-var cronJob = cron.job("0 0 */12 * * *", function(){
+var cronJob = cron.job("00 30 5 * * 1-6", function(){
         console.log("start cron job");
         JobsTidyCtrl.checkDeadlineCron();
         JobsImportCtrl.importJobs();
