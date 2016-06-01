@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-vae nr = require('./newrelic');
+var nr = require('./newrelic');
 var debug = require('debug')('passport-mongo');
 var app = require('./app');
 
