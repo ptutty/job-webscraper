@@ -15,9 +15,8 @@ MongoDB stores jobs and Mongoose provided a nice ORM for search and paging etc..
 1. Clone the repository: `git clone https://ptutty@bitbucket.org/ptutty/gizzajob.git`
 2. Install the application and dependencies: `npm install`
 3. setup mongoDB on your VM or use a SAAS plaform and setup a free account on modulusmongo.net
-5. create a .env file at root of the project and add two line:
-MONGO_HOST = '<your hosted MONGO details>'
-PORT = 8080
+5. create a .env file at root of the project and add your monogoDB location:
+MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo.net'
 6. Start the server: `node server.js` or use PM2 to demonise.
 7. View in browser at `http://localhost:8080`
 
