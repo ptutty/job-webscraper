@@ -2,6 +2,8 @@
 
 # A MEAN stack app for searching higher education IT jobs
 
+[app demo](http://uniposts.co.uk/#/)
+
 A MEAN stack app for searching higher education IT jobs in the UK, the app allow users to create an account and shortlist jobs posted. Uniposts searches university HR website for I.T. jobs nightly.
 
 ## technical overview
@@ -27,5 +29,3 @@ MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo
 ## About Uniposts
 
 Uniposts started as a way for me to learn more about programming in a asynchronous environment and to learn a little bit more about NodeJS. Feel free to fork or contribute to this project. I'd love to here your feedback and questions.
-
-
