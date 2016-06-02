@@ -1,4 +1,6 @@
-# Gizza Job App
+![Uniposts](http://uniposts.co.uk/images/logo.png)
+
+# A MEAN stack app for searching higher education IT jobs
 
 A Node app built with MongoDB and Angular for searching and managing IT job applications in the Higher education sector.
 
@@ -21,5 +23,3 @@ MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo
 7. View in browser at `http://localhost:8080`
 
 
-
-![Uniposts](http://uniposts.co.uk/images/logo.png)
