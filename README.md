@@ -2,7 +2,6 @@
 
 # A MEAN stack app for searching higher education IT jobs
 
-A Node app built with MongoDB and Angular for searching and managing IT job applications in the Higher education sector.
 
 Node does the bulk of the work on the server side - web server, RESTful API, job scraping, DOM traversal and parsing, authentication, importing into MongoDB, 
 Angular provides a nice reactive frontend with services which access the node API routes.
@@ -21,5 +20,3 @@ MongoDB stores jobs and Mongoose provided a nice ORM for search and paging etc..
 MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo.net'
 6. Start the server: `node server.js` or use PM2 to demonise.
 7. View in browser at `http://localhost:8080`
-
-
