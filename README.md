@@ -22,4 +22,4 @@ MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo
 
 
 
-![Job-aholic](http://www.leftfutures.org/wp-content/uploads/2011/09/Gizza-Job-copy-300x214.jpg)
+![Job-aholic](http://uniposts.co.uk/)
