@@ -2,9 +2,11 @@
 
 # A MEAN stack app for searching higher education IT jobs
 
-[app demo](http://uniposts.co.uk/#/)
+
 
 A MEAN stack app for searching higher education IT jobs in the UK, the app allow users to create an account and shortlist jobs posted. Uniposts searches university HR website for I.T. jobs nightly.
+
+**[App Demo]**(http://uniposts.co.uk/#/)
 
 ## technical overview
 
