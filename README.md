@@ -6,8 +6,8 @@
 
 A MEAN stack app for searching higher education IT jobs in the UK, the app allow users to create an account and shortlist jobs posted. Uniposts searches university HR website for I.T. jobs nightly.
 
-**[App Demo]**(http://uniposts.co.uk/#/)
-
+### [App Demo](http://uniposts.co.uk/#/)
+ ###
 ## technical overview
 
 Node does the bulk of the work on the server side - web server, RESTful API, job scraping, DOM traversal and parsing, authentication, importing into MongoDB, 
