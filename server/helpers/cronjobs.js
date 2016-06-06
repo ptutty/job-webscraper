@@ -24,8 +24,8 @@ var JobsImportCtrl = require('../controllers/jobsImportCtrl'); // shortlist cont
 
 
 var cron = require('cron');
-var cronJob = cron.job("00 05 16 * * 0-6", function(){
-    // perform operation e.g. GET request http.get() etc.
+var cronJob = cron.job("* */12 * * *", function(){
+    // run every 12 hours
     console.info('cron job completed');
     JobsTidyCtrl.checkDeadlineCron();
     JobsImportCtrl.importJobs();
