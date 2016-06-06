@@ -1,22 +1,33 @@
-# Gizza Job App
+![Uniposts](http://uniposts.co.uk/images/logo.png)
 
-A Node app built with MongoDB and Angular for search and managing job applications
+# A MEAN stack app for searching higher education IT jobs
 
-Node provides the RESTful API and job scraping and bulk importing.
-Angular provides the frontend and accesses the API.
-MongoDB stores the jobs
+
+
+A MEAN stack app for searching higher education IT jobs in the UK, the app allow users to create an account and shortlist jobs posted. Uniposts searches university HR website for I.T. jobs nightly.
+
+### [App Demo](http://uniposts.co.uk/#/)
+ ###
+## technical overview
+
+Node does the bulk of the work on the server side - web server, RESTful API, job scraping, DOM traversal and parsing, authentication, importing into MongoDB, 
+Angular provides a nice reactive frontend with services which access the node API routes.
+MongoDB stores jobs and Mongoose provided a nice ORM for search and paging etc.. - no heavy duty relational DB needed!
 
 ## Requirements
 
-- [Node and npm](http://nodejs.org)
+- [NodeJS, MongoDB and NPM](http://nodejs.org)
 
 ## Installation
 
 1. Clone the repository: `git clone https://ptutty@bitbucket.org/ptutty/gizzajob.git`
-2. Install the application: `npm install`
-3. Start the server: `node server.js`
-4. View in browser at `http://localhost:8080`
+2. Install the application and dependencies: `npm install`
+3. setup mongoDB on your VM or use a SAAS plaform and setup a free account on modulusmongo.net
+5. create a .env file at root of the project and add your monogoDB location:
+MONGO_HOST = '<your MONGODB location i.e. mongodb://username@apollo.modulusmongo.net'
+6. Start the server: `node server.js` or use PM2 to demonise.
+7. View in browser at `http://localhost:8080`
 
+## About Uniposts
 
-
-![Todo-aholic](http://www.leftfutures.org/wp-content/uploads/2011/09/Gizza-Job-copy-300x214.jpg)
+Uniposts started as a way for me to learn more about programming in a asynchronous environment and to learn a little bit more about NodeJS. Feel free to fork or contribute to this project. I'd love to here your feedback and questions.
