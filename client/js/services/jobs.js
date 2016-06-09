@@ -11,11 +11,17 @@ angular.module('jobsService', [])
 					return $http.get('/api/jobs'); // all jobs
 				}
 			},
-			paginated : function(pagenum, query) {
+			paginated : function(pagenum, query, sortparam) {
+
+				var sortoption = 'asc';
+				if (sortparam){
+					sortoption = sortparam;
+				};
+
 				if (query) {
-					return $http.get('/api/jobs/page/' + pagenum + '?search=' + query);
+					return $http.get('/api/jobs/page/' + pagenum + '?search=' + query + '&sort=' + sortoption );
 				} else {
-					return $http.get('/api/jobs/page/' + pagenum);
+					return $http.get('/api/jobs/page/' + pagenum + '?sort=' + sortoption);
 				}
 			},
 			create : function(jobData) {

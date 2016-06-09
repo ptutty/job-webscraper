@@ -9,12 +9,17 @@ module.exports = {
         var options = {
             lean:     true,
             page:   1,
-            limit:    5,
+            limit:    20,
             sort: {deadline: 'asc'}
         };
 
-        // is this a search or browse?
         var search = req.param('search');
+        var sortparam = req.param('sort');
+
+        if (sortparam) {
+            options.sort.deadline =  sortparam;
+        }
+
 
         var query;
         if (search) {
@@ -25,9 +30,12 @@ module.exports = {
 
         // set the page of result to show
         if (req.params.page) {
-            console.log(req.params.page);
             options.page = req.params.page;
         }
+
+
+
+
 
         // output results
         Job.paginate(query, options, function(err, result) {

@@ -11,9 +11,9 @@ module.exports = function (app) {
     // api ---------------------------------------------------------------------
 
     // all jobs paginated
-    app.get('/api/jobs', function (req, res) {
-        Jobsctrl.getJobs(req, res);
-    });
+    // app.get('/api/jobs', function (req, res) {
+    //     Jobsctrl.getJobs(req, res);
+    // });
 
     // get jobs specify page numbers + search params, sorting params
     app.get('/api/jobs/page/:page', function (req, res) {

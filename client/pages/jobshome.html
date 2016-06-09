@@ -97,11 +97,16 @@
       <h4>Sort by</h4>
 
     <select data-placeholder="Choose Category" class="chosen-select-no-single" 
-     ng-model="jobFilter" 
-    ng-options="category as category.label for category in jobSortby">
+     ng-model="selectedOption"
+            ng-options="obj as obj.text for obj in sortoptions"
+            ng-change="setsortoptions()"
+    >
   </select>
 
-  
+
+
+
+
 
     </div>
 
