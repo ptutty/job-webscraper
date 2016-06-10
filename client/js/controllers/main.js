@@ -3,25 +3,49 @@ angular.module('jobsController', [])
 	.controller('jobListController', ['$scope','$http', 'Jobs', 'ShortlistService' , '$routeParams' , 'AppService' , '$location', function($scope, $http, Jobs, ShortlistService, $routeParams, AppService, $location) {
 
 
-        $scope.loading = true;
-        $scope.searchterm = "";
-        // load query strings on page load ======================================================================
-        var query = $routeParams.search;
-        var pagenum = $routeParams.pagenumber;
-        var sortparams = $routeParams.sort;
+        $scope.sortoptions = [{"text":"Deadline Nearest","value":"asc"},{"text":"Deadline Furthest","value":"desc"}];
+        $scope.selectedOption = $scope.sortoptions[0];
+        var pagenum, query, sortby;
 
-        // main function for creating http requests =================================================
-        $scope.showJobsPaginated = function(pagenum, query, sortparams) {
+        // main function for creating http requests of jobs =================================================
+        $scope.showJobsPaginated = function(type) {
+
             $scope.loading = true;
             $scope.jobs = "";
-            Jobs.paginated(pagenum, query, sortparams)
+            pagenum = (typeof $routeParams.pagenumber != 'undefined') ? $routeParams.pagenumber : 1;
+
+
+            /* type of search request */
+            switch(type) {
+                case 'citysearch': // search button press
+                    query = $scope.city;
+                    console.log(query);
+                    //update url for bookmarking / persisitence
+                    $location.path('/page/1', false).search({'search': $scope.city});
+                    break;
+                case 'search': // search button press
+                    query = $scope.searchterm;
+                    //update url for bookmarking / persisitence
+                    $location.path('/page/1', false).search({'search': $scope.searchterm});
+                    break;
+                case 'sort': // sort by drop down change
+                    query = $scope.searchterm;
+                    sortby = (typeof $scope.selectedOption.value != 'undefined') ? $scope.selectedOption.value : 'asc';
+                    $location.path('/page/' + pagenum , false).search({'search': $scope.searchterm, 'sortby': sortby});
+                    break;
+                case 'pageload': // reload of page
+                    query = (typeof $routeParams.search != 'undefined') ? $routeParams.search : null;
+                    $scope.searchterm = (query!= null) ? query : "";
+                    break;
+            }
+
+            Jobs.paginated(pagenum, query, sortby)
                 .success(function(results) {
                     $scope.totaljobs = results.total;
                     $scope.page = results.page;
                     $scope.pages = results.pages;
                     $scope.jobs = results.docs;
-                    $scope.loading = false;
-                    $scope.searchtitle = "Showing all " + $scope.totaljobs + " jobs in Web, Software & IT";
+                    $scope.searchtitle = "Showing all " + $scope.totaljobs + " current vacancies.";
                     $scope.pageNumbers = [];
                     for (var i=1; i < $scope.pages+1; i++) {
                         $scope.pageNumbers.push(i);
@@ -32,38 +56,32 @@ angular.module('jobsController', [])
                         $scope.previouspage = currentpage - 1;
                     }
                     $scope.nextpage = currentpage + 1;
-
+                    console.log(query);
                     if (query) {
                         $scope.searchtitle = results.total + " jobs found for search: " + query;
                         $scope.query = "?search=" + query;
                     }
+                    $scope.loading = false;
                 });
         };
 
 
-        // default on page load ==================================================
-        function init() {
-            if (pagenum) {
-                $scope.showJobsPaginated(pagenum, query, sortparams);
-            } else {
-                $scope.showJobsPaginated(1, null ,null);
-            }
-        }
-        init();
+        // page load
+        $scope.showJobsPaginated('pageload');
 
-
-        // list sorting drop down controller ========================================
-        $scope.sortoptions = [{"text":"Deadline Furthest","value":"desc"}, {"text":"Deadline Nearest","value":"asc"}];
-        $scope.selectedOption = $scope.sortoptions[1];
-
-        $scope.setsortoptions = function() {
-            if ($scope.searchterm) {
-                $scope.showJobsPaginated(pagenum, $scope.searchterm , $scope.selectedOption.value);
-            } else {
-                $scope.showJobsPaginated(pagenum, null , $scope.selectedOption.value);
-            }
+        // search button
+        $scope.search = function() {
+            $scope.showJobsPaginated('search');
         };
 
+        $scope.citysearch = function() {
+            $scope.showJobsPaginated('citysearch');
+        };
+
+        // sort by drop down change
+        $scope.setsortoptions = function() {
+            $scope.showJobsPaginated('sort');
+        };
 
 
         // last job import meta info =============================================
@@ -78,18 +96,7 @@ angular.module('jobsController', [])
 			.success(function(data) {
 			 $scope.shortlist = data;
 			 $scope.loading = false;
-		});
+		})
 
-
-		// search button controller =====================================================
-		$scope.search = function() {
-            $scope.showJobsPaginated(1 , $scope.searchterm , $scope.selectedOption.value );
-            $location.path('/page/1', false).search({'search': $scope.searchterm});
-		};
-
-
-
-
-
-	}]);
+	}])
 
