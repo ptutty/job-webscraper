@@ -6,15 +6,17 @@
 <div id="titlebar">
   <div class="container">
     <div class="ten columns">
-      <h2>Search for I.T. jobs in UK higher education </h2>
+      <h2>All IT jobs in UK higher education in one place. </h2>
       <h4>{{  searchtitle }} </h4>
+
 
     </div>
 
     <div class="six columns">
 
-      <p>Jobs last updated <strong>{{ appstate.updated_at | date:'fullDate'  }}.</strong> <br>
-      <a href="#">{{ appstate.newjobs }} new jobs</a>  posted today. </p>
+
+
+      <a class="button" href="/#/register/" ><i class="fa fa-user"></i> Sign up to shortlist and manage Jobs, It’s Free!</a>
     </div>
 
   </div>
@@ -94,6 +96,10 @@
   <!-- Widgets -->
   <div class="five columns">
 
+    <div class="widget">
+    <p>Jobs last updated <strong>{{ appstate.updated_at | date:'fullDate'  }}.</strong> <br><a href="#">{{ appstate.newjobs }} new jobs</a>  posted today. </p>
+
+    </div>
     <!-- Sort by -->
     <div class="widget">
       <h4>Sort by</h4>
